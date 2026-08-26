@@ -1,100 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><WS></title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="theme-color" content="#050508" />
+    <meta name="description" content="Portfólio de Weslley Neri — desenvolvimento de sistemas, inteligência artificial, automação e produtos orientados por dados." />
+    <title>Weslley Neri | Desenvolvedor de IA</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="github-pages.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body class="bg-black text-white font-sans min-h-screen">
-    <!-- Navbar -->
-    <header class="flex justify-between items-center px-6 py-4">
-      <div class="text-3xl text-green-400 font-bold"></div>
-      <div class="text-3xl text-green-400">≡</div>
-    </header>
+  <body>
+    <main>
+      <div class="noise" aria-hidden="true"></div>
+      <div class="pointer-aura" aria-hidden="true"></div>
+      <div class="scroll-progress" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
-    <main class="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-10 space-y-10 md:space-y-0">
-      <!-- Intro Text -->
-      <div class="md:w-1/2 animate-fade-in-up">
-        <p class="text-blue-400 mb-2 text-lg font-semibold">✌️ Olá! Sou o Weslley Neri</p>
-        <h1 class="text-4xl md:text-5xl font-bold leading-snug">
-          Um <span class="text-green-400">  < desenvolvedor apaixonado por criar > </span><br />
-          soluções inovadoras.
-        </h1>
-        <p class="text-red-400 mt-6 text-sm leading-relaxed">
-          Tenho 25 anos e sempre busco aprimorar minhas habilidades em tecnologias modernas. 
-          Além disso, sou entusiasta de ensinar e compartilhar o conhecimento com os outros.
-        </p>
-      </div>
+      <header class="site-header" id="site-header">
+        <a class="brand" href="#inicio" aria-label="Ir para o início">
+          <span class="brand-mark">WN</span>
+          <span class="brand-copy">WESLLEY.NERI®</span>
+        </a>
+        <nav aria-label="Navegação principal">
+          <a href="#projetos">Projetos</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#stack">Stack</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <a class="header-cta" href="https://github.com/Weslleyneri" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </header>
 
-      <!-- Illustration -->
-      <div class="md:w-1/2 animate-fade-in delay-200">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXdoMWxlN3FiaGt4ajNvd201dDNtdnRoYTZxdHVqa3NuaXNidXA4dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/78XCFBGOlS6keY1Bil/giphy.gif" alt="Developer" class="w-full max-w-md mx-auto" />
-      </div>
+      <section id="inicio" class="hero section-shell">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <div class="signal-pill"><span class="signal-dot"></span> DISPONÍVEL PARA NOVOS DESAFIOS</div>
+          <p class="hero-kicker"><span>01 /</span> DESENVOLVEDOR DE SISTEMAS & IA</p>
+          <div class="name-stage" aria-label="Weslley Neri">
+            <h1>
+              <span class="name-line name-line-one" data-text="WESLLEY">WESLLEY</span>
+              <span class="name-line name-line-two" data-text="NERI">NERI</span>
+            </h1>
+            <span class="name-index">DEV<br />SÊNIOR</span>
+          </div>
+          <p class="hero-summary">Eu transformo <strong>operações complexas</strong> em produtos digitais inteligentes — conectando código, dados e IA para criar soluções que realmente entram em operação.</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#projetos">Explorar projetos <span aria-hidden="true">↘</span></a>
+            <div class="social-actions" aria-label="Redes profissionais">
+              <a href="https://github.com/Weslleyneri" target="_blank" rel="noreferrer" aria-label="GitHub de Weslley Neri"><span>GH</span></a>
+              <a href="https://br.linkedin.com/in/weslley-neri-528187147" target="_blank" rel="noreferrer" aria-label="LinkedIn de Weslley Neri"><span>IN</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portrait-zone" aria-label="Foto de Weslley Neri">
+          <div class="orbit orbit-one"><span>AI</span><span>DEV</span><span>DATA</span></div>
+          <div class="orbit orbit-two"></div>
+          <div class="tilt-card portrait-card">
+            <div class="portrait-scan" aria-hidden="true"></div>
+            <img src="https://i.ibb.co/PRKX1Sx/259041fc-c2f2-4447-b55a-0e119effe4ae.png" alt="Retrato de Weslley Neri" />
+            <div class="portrait-meta"><span>WNS // AI DEV</span><span>BRASIL</span></div>
+          </div>
+          <div class="floating-code code-one">&lt;build_future /&gt;</div>
+          <div class="floating-code code-two">SYSTEM.ONLINE</div>
+          <div class="mini-cube" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="hero-footer">
+          <span>ROLE <b>TECH LEAD / AI DEVELOPER</b></span>
+          <span>FOCUS <b>IMPACTO & ESCALA</b></span>
+          <a href="#projetos">SCROLL TO DISCOVER <span aria-hidden="true">↘</span></a>
+        </div>
+      </section>
+
+      <section id="projetos" class="projects-section section-shell reveal">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker"><span>02 /</span> PROJETOS SELECIONADOS</p>
+            <h2>Sistemas que movem<br /><em>operações reais.</em></h2>
+          </div>
+          <p class="section-intro">Da estratégia à entrega: projetos desenhados para simplificar decisões, eliminar tarefas manuais e dar visibilidade a quem lidera.</p>
+        </div>
+
+        <div class="projects-grid">
+          <button class="tilt-card project-card" type="button" data-project="0" aria-label="Abrir detalhes do projeto Centro de Comando">
+            <div class="project-glow" style="--project-color:#74f7ff"></div>
+            <div class="project-topline"><span>01</span><span class="project-symbol" style="color:#74f7ff">◈</span></div>
+            <div class="project-content"><p style="color:#74f7ff">OPERAÇÕES + IA</p><h3>Centro de Comando</h3><span class="project-rule" style="background:#74f7ff"></span><p class="project-description">Portal executivo para transformar um backlog complexo em decisões rápidas, com leitura de SLA, chamados críticos, histórico e priorização operacional.</p></div>
+            <div class="project-tags"><span>React</span><span>IA</span><span>API</span><span>Analytics</span></div>
+            <div class="project-corner"><span>VER CASE</span><b>›</b></div>
+          </button>
+
+          <button class="tilt-card project-card" type="button" data-project="1" aria-label="Abrir detalhes do projeto Estoque ATP">
+            <div class="project-glow" style="--project-color:#a987ff"></div>
+            <div class="project-topline"><span>02</span><span class="project-symbol" style="color:#a987ff">▦</span></div>
+            <div class="project-content"><p style="color:#a987ff">DADOS + VISIBILIDADE</p><h3>Estoque ATP</h3><span class="project-rule" style="background:#a987ff"></span><p class="project-description">Ecossistema de monitoramento para valor de estoque, limites segurados, urnas e ATPs críticas, conectando Databricks à visão executiva no Power BI.</p></div>
+            <div class="project-tags"><span>Power BI</span><span>Databricks</span><span>DAX</span><span>SQL</span></div>
+            <div class="project-corner"><span>VER CASE</span><b>›</b></div>
+          </button>
+
+          <button class="tilt-card project-card" type="button" data-project="2" aria-label="Abrir detalhes do Projeto Cervelo">
+            <div class="project-glow" style="--project-color:#b8ff65"></div>
+            <div class="project-topline"><span>03</span><span class="project-symbol" style="color:#b8ff65">⌁</span></div>
+            <div class="project-content"><p style="color:#b8ff65">ROTEIRIZAÇÃO INTELIGENTE</p><h3>Projeto Cervelo</h3><span class="project-rule" style="background:#b8ff65"></span><p class="project-description">Automação da roteirização de técnicos de campo para reduzir quilômetros, respeitar prioridades e dar à gestão uma visão clara da operação.</p></div>
+            <div class="project-tags"><span>Automação</span><span>Geodados</span><span>BI</span><span>Field Service</span></div>
+            <div class="project-corner"><span>VER CASE</span><b>›</b></div>
+          </button>
+
+          <button class="tilt-card project-card" type="button" data-project="3" aria-label="Abrir detalhes do projeto Brilha Mais">
+            <div class="project-glow" style="--project-color:#ff7ecb"></div>
+            <div class="project-topline"><span>04</span><span class="project-symbol" style="color:#ff7ecb">✣</span></div>
+            <div class="project-content"><p style="color:#ff7ecb">IA CONVERSACIONAL</p><h3>Brilha Mais</h3><span class="project-rule" style="background:#ff7ecb"></span><p class="project-description">Assistente operacional para interagir com técnicos em campo, acompanhar indicadores e automatizar cobranças e escalonamentos.</p></div>
+            <div class="project-tags"><span>LLM</span><span>WhatsApp</span><span>Automação</span><span>NPS</span></div>
+            <div class="project-corner"><span>VER CASE</span><b>›</b></div>
+          </button>
+
+          <button class="tilt-card project-card" type="button" data-project="4" aria-label="Abrir detalhes do projeto Peças Backup">
+            <div class="project-glow" style="--project-color:#ffad66"></div>
+            <div class="project-topline"><span>05</span><span class="project-symbol" style="color:#ffad66">⬡</span></div>
+            <div class="project-content"><p style="color:#ffad66">CONTROLE + EFICIÊNCIA</p><h3>Peças Backup</h3><span class="project-rule" style="background:#ffad66"></span><p class="project-description">Portal para acompanhar cada envio e consumo de peças backup, dando visibilidade sobre saldo, uso e comportamento por técnico.</p></div>
+            <div class="project-tags"><span>React</span><span>PostgreSQL</span><span>Dashboard</span><span>Logística</span></div>
+            <div class="project-corner"><span>VER CASE</span><b>›</b></div>
+          </button>
+
+          <button class="tilt-card project-card" type="button" data-project="5" aria-label="Abrir detalhes do projeto RAT Digital">
+            <div class="project-glow" style="--project-color:#7aa7ff"></div>
+            <div class="project-topline"><span>06</span><span class="project-symbol" style="color:#7aa7ff">✎</span></div>
+            <div class="project-content"><p style="color:#7aa7ff">EXPERIÊNCIA EM CAMPO</p><h3>RAT Digital</h3><span class="project-rule" style="background:#7aa7ff"></span><p class="project-description">Jornada mobile para assinatura digital do cliente e do técnico, geração do PDF padrão e compartilhamento direto pelo celular.</p></div>
+            <div class="project-tags"><span>PDF</span><span>Assinatura</span><span>Mobile</span><span>UX</span></div>
+            <div class="project-corner"><span>VER CASE</span><b>›</b></div>
+          </button>
+        </div>
+      </section>
+
+      <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+        <button type="button" data-slot="dialog-close" id="dialog-close" aria-label="Fechar detalhes">×</button>
+        <div class="dialog-orbit" aria-hidden="true"></div>
+        <div class="dialog-heading">
+          <span id="dialog-index"></span>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-description"></p>
+        </div>
+        <div class="dialog-grid">
+          <div><span>O DESAFIO</span><p id="dialog-challenge"></p></div>
+          <div><span>A SOLUÇÃO</span><p id="dialog-solution"></p></div>
+        </div>
+        <div class="dialog-tags" id="dialog-tags"></div>
+      </dialog>
+
+      <section id="sobre" class="about-section section-shell reveal">
+        <div class="about-rail"><p class="section-kicker"><span>03 /</span> SOBRE MIM</p><span class="vertical-label">HUMAN + TECHNOLOGY</span></div>
+        <div class="about-main">
+          <h2>Não desenvolvo apenas telas.<br /><em>Desenho caminhos.</em></h2>
+          <div class="about-copy-grid">
+            <p class="about-lead">Sou desenvolvedor de sistemas e inteligência artificial com olhar para o todo: <strong>negócio, pessoas, tecnologia e resultado.</strong></p>
+            <p>Atuo da investigação do problema à arquitetura, desenvolvimento, validação e comunicação da entrega. Como profissional sênior, também acompanho a evolução de projetos, reviso construções e códigos e apoio o crescimento técnico do time.</p>
+          </div>
+        </div>
+        <div class="leadership-console">
+          <div class="console-head"><span>LEADERSHIP_CORE</span><span class="console-online">● ONLINE</span></div>
+          <div class="console-row"><span>01</span><strong>Estratégia técnica</strong><small>Traduzo necessidades reais em soluções viáveis.</small></div>
+          <div class="console-row"><span>02</span><strong>Qualidade de entrega</strong><small>Valido arquitetura, experiência e código.</small></div>
+          <div class="console-row"><span>03</span><strong>Evolução do time</strong><small>Acompanho projetos e desenvolvedores juniores.</small></div>
+          <div class="console-row"><span>04</span><strong>Visão operacional</strong><small>Construo para funcionar fora do slide.</small></div>
+        </div>
+      </section>
+
+      <section id="stack" class="stack-section reveal">
+        <div class="stack-marquee" aria-hidden="true"><div>INTELIGÊNCIA ARTIFICIAL <span>✦</span> DESENVOLVIMENTO <span>✦</span> AUTOMAÇÃO <span>✦</span> DADOS <span>✦</span> INTELIGÊNCIA ARTIFICIAL <span>✦</span> DESENVOLVIMENTO <span>✦</span></div></div>
+        <div class="section-shell stack-layout">
+          <div class="stack-title"><p class="section-kicker"><span>04 /</span> MATRIZ DE DOMÍNIO</p><h2>TECNOLOGIA<br /><em>COM PROPÓSITO.</em></h2><p>Uma stack multidisciplinar para conectar interfaces, automações, dados e inteligência.</p></div>
+          <div class="stack-orbit" aria-label="Tecnologias e competências">
+            <div class="core-sphere"><strong class="core-symbol">◈</strong><span>NERI<br />AI CORE</span></div>
+            <div class="stack-node node-1"><strong class="node-symbol">✣</strong><span>LLMs & Agentes</span><small>INTELIGÊNCIA</small></div>
+            <div class="stack-node node-2"><strong class="node-symbol">&lt;/&gt;</strong><span>React & JavaScript</span><small>INTERFACES</small></div>
+            <div class="stack-node node-3"><strong class="node-symbol">_&gt;</strong><span>Python & Java</span><small>ENGENHARIA</small></div>
+            <div class="stack-node node-4"><strong class="node-symbol">▦</strong><span>PostgreSQL</span><small>DADOS</small></div>
+            <div class="stack-node node-5"><strong class="node-symbol">◫</strong><span>Power BI</span><small>ANALYTICS</small></div>
+            <div class="stack-node node-6"><strong class="node-symbol">⌁</strong><span>Power Automate</span><small>AUTOMAÇÃO</small></div>
+            <div class="orbit-path path-one"></div><div class="orbit-path path-two"></div>
+          </div>
+        </div>
+        <div class="stack-ticker section-shell"><span>SUPABASE</span><i></i><span>COPILOT STUDIO</span><i></i><span>GPT MAKER</span><i></i><span>DATABRICKS</span><i></i><span>POWER AUTOMATE</span><i></i><span>POSTGRESQL</span></div>
+      </section>
+
+      <section class="method-section section-shell reveal">
+        <div class="method-heading"><p class="section-kicker"><span>05 /</span> COMO EU CONSTRUO</p><h2>DO PROBLEMA AO <em>IMPACTO.</em></h2></div>
+        <div class="method-flow">
+          <article><span>01</span><div class="method-icon">✦</div><h3>ENTENDER</h3><p>Investigo a operação antes de pensar na interface.</p></article>
+          <article><span>02</span><div class="method-icon">✦</div><h3>CONECTAR</h3><p>Uno negócio, dados e possibilidades técnicas.</p></article>
+          <article><span>03</span><div class="method-icon">✦</div><h3>CONSTRUIR</h3><p>Desenvolvo experiências claras, robustas e escaláveis.</p></article>
+          <article><span>04</span><div class="method-icon">✦</div><h3>EVOLUIR</h3><p>Valido, mensuro e transformo feedback em melhoria.</p></article>
+        </div>
+      </section>
+
+      <section id="contato" class="contact-strip section-shell reveal">
+        <p>ISTO É SÓ O COMEÇO</p>
+        <h2>Vamos construir algo <em>inteligente?</em></h2>
+        <a href="https://br.linkedin.com/in/weslley-neri-528187147" target="_blank" rel="noreferrer">Iniciar conversa <span aria-hidden="true">↗</span></a>
+        <footer>
+          <span>© 2026 WESLLEY NERI</span><span>DESENHADO PARA O PRÓXIMO NÍVEL</span>
+          <div><a href="https://github.com/Weslleyneri" target="_blank" rel="noreferrer">GITHUB</a><a href="https://br.linkedin.com/in/weslley-neri-528187147" target="_blank" rel="noreferrer">LINKEDIN</a></div>
+        </footer>
+      </section>
     </main>
-        
-<!-- Contato / Social -->
-<section class="text-center py-10 bg-[#0a0a0a]" id="contato">
-  <h2 class="text-2xl font-bold text-green-400 mb-4">Vamos nos conectar?</h2>
-  <p class="text-gray-400 mb-6">Você pode me encontrar nas redes abaixo:</p>
-  
-  <div class="flex justify-center gap-6">
-    <!-- GitHub -->
-    <a href="https://github.com/Weslleyneri" target="_blank"
-       class="flex items-center gap-2 px-4 py-2 border border-green-400 text-green-400 rounded-full hover:bg-green-400 hover:text-black transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 .5C5.7.5.6 5.6.6 12c0 5.1 3.3 9.4 7.8 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.8-1.5-3.8-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 1.7 2.5 2.2.2-.7.4-1.3.7-1.6-2.5-.3-5.1-1.2-5.1-5.6 0-1.2.4-2.1 1.1-2.8-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 2.9 1.1.8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c2-.1 2.9-1.1 2.9-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.8 0 4.5-2.6 5.3-5.1 5.6.4.3.7.9.7 1.9v2.9c0 .3.2.7.8.6 4.5-1.5 7.8-5.8 7.8-10.9C23.4 5.6 18.3.5 12 .5z"/>
-      </svg>
-      GitHub
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/weslley-neri-528187147/" target="_blank"
-       class="flex items-center gap-2 px-4 py-2 border border-blue-400 text-blue-400 rounded-full hover:bg-blue-400 hover:text-black transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zm-9 19H7v-8h3v8zm-1.5-9.2c-1 0-1.7-.8-1.7-1.8s.8-1.8 1.7-1.8c1 0 1.7.8 1.7 1.8s-.7 1.8-1.7 1.8zm10.5 9.2h-3v-4c0-1.1-.4-1.8-1.3-1.8-.7 0-1.1.5-1.3 1-.1.2-.1.5-.1.8v4h-3v-8h3v1c.4-.6 1.1-1.4 2.6-1.4 1.9 0 3.4 1.2 3.4 3.9v4.5z"/>
-      </svg>
-      LinkedIn
-    </a>
-  </div>
-</section>
-
-
-
-    <!-- Custom Animations -->
-    <style>
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      .animate-fade-in-up {
-        animation: fade-in-up 0.8s ease-out forwards;
-      }
-
-      .animate-fade-in {
-        animation: fade-in 1s ease-out forwards;
-      }
-
-      .delay-200 {
-        animation-delay: 0.2s;
-      }
-    </style>
   </body>
 </html>
