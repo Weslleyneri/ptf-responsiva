@@ -1,4 +1,4 @@
-name: Publicar portfólio no GitHub Pages
+name: Publicar portfolio no GitHub Pages
 
 on:
   push:
@@ -21,20 +21,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Baixar arquivos do repositório
+      - name: Baixar arquivos do repositorio
         uses: actions/checkout@v4
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Montar versão pública
+      - name: Montar versao publica
         run: |
-          mkdir -p _site/assets
-          cp index.html script.js github-pages.css .nojekyll _site/
-          cp assets/favicon.svg _site/assets/favicon.svg
-          sed '/^@import /d' globals.css > _site/globals.css
+          mkdir -p _site
+          cp index.html globals.css script.js .nojekyll _site/
+          cp -R assets _site/assets
 
-      - name: Preparar site estático
+      - name: Preparar site estatico
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site"
@@ -42,3 +41,4 @@ jobs:
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4
+
