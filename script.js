@@ -249,13 +249,169 @@ const PROJECTS = [
   },
 ];
 
+const GITHUB_REPOS = [
+  {
+    id: "GH_01",
+    name: "targetcs-site",
+    title: { pt: "Target Consultoria", en: "Target Consulting" },
+    type: "html",
+    language: "HTML",
+    updated: "2026-07-13",
+    color: "#67edf6",
+    summary: {
+      pt: "Site responsivo para consultoria técnica dos setores industrial e farmacêutico, com foco em serviços para ambientes regulados.",
+      en: "Responsive website for technical consulting in industrial and pharmaceutical sectors, focused on services for regulated environments.",
+    },
+    focus: {
+      pt: ["Apresentação de serviços", "Experiência responsiva", "Conversão comercial"],
+      en: ["Service presentation", "Responsive experience", "Commercial conversion"],
+    },
+    stack: ["HTML", "CSS", "JavaScript", "Responsive UI"],
+    url: "https://github.com/Weslleyneri/targetcs-site",
+  },
+  {
+    id: "GH_02",
+    name: "neritech",
+    title: { pt: "Neri AI Tech", en: "Neri AI Tech" },
+    type: "react",
+    language: "TypeScript",
+    updated: "2026-05-20",
+    color: "#a77dff",
+    summary: {
+      pt: "Plataforma institucional para serviços de sites, automação com IA e modernização de sistemas, construída com uma stack React moderna.",
+      en: "Institutional platform for websites, AI automation and system modernization services, built with a modern React stack.",
+    },
+    focus: {
+      pt: ["Serviços de tecnologia", "Arquitetura React", "Integrações digitais"],
+      en: ["Technology services", "React architecture", "Digital integrations"],
+    },
+    stack: ["React 19", "TypeScript", "Vite", "Supabase", "Firebase", "i18next"],
+    url: "https://github.com/Weslleyneri/neritech",
+  },
+  {
+    id: "GH_03",
+    name: "academyIA",
+    title: { pt: "Portal de Consulta", en: "Operations Portal" },
+    type: "node",
+    language: "Node.js",
+    updated: "2026-04-06",
+    color: "#b7ff64",
+    summary: {
+      pt: "Portal operacional com acessos separados para RH e Field Service, sessões autenticadas e rotas protegidas por perfil.",
+      en: "Operations portal with separate HR and Field Service access, authenticated sessions and role-protected routes.",
+    },
+    focus: {
+      pt: ["Controle por perfil", "Rotas protegidas", "Operação RH + Field"],
+      en: ["Role-based access", "Protected routes", "HR + Field operations"],
+    },
+    stack: ["Node.js", "Express", "Sessions", "Multer", "JavaScript"],
+    url: "https://github.com/Weslleyneri/academyIA",
+  },
+  {
+    id: "GH_04",
+    name: "SistemadeCompliance",
+    title: { pt: "Sistema de Compliance", en: "Compliance System" },
+    type: "node",
+    language: "JavaScript",
+    updated: "2025-12-24",
+    color: "#ff6fb7",
+    summary: {
+      pt: "Experiência web modular para rotinas de conformidade, com áreas de administração, consulta, manual e carga de dados.",
+      en: "Modular web experience for compliance workflows, with administration, lookup, guidance and data-upload areas.",
+    },
+    focus: {
+      pt: ["Fluxo de conformidade", "Módulos operacionais", "Gestão de informação"],
+      en: ["Compliance workflow", "Operational modules", "Information management"],
+    },
+    stack: ["HTML", "CSS", "JavaScript", "Node.js"],
+    url: "https://github.com/Weslleyneri/SistemadeCompliance",
+  },
+  {
+    id: "GH_05",
+    name: "ianeri",
+    title: { pt: "Neri AI Solutions", en: "Neri AI Solutions" },
+    type: "html",
+    language: "HTML",
+    updated: "2025-10-02",
+    color: "#ffac66",
+    summary: {
+      pt: "Conceito visual interativo para a marca Neri AI Solutions, com splash imersiva e portal institucional conectado.",
+      en: "Interactive visual concept for the Neri AI Solutions brand, with an immersive splash and connected institutional portal.",
+    },
+    focus: {
+      pt: ["Identidade de marca", "Entrada imersiva", "Navegação visual"],
+      en: ["Brand identity", "Immersive entry", "Visual navigation"],
+    },
+    stack: ["HTML", "CSS", "JavaScript", "Visual Design"],
+    url: "https://github.com/Weslleyneri/ianeri",
+  },
+  {
+    id: "GH_06",
+    name: "portalconsul-repository",
+    title: { pt: "Portal Técnico", en: "Technical Portal" },
+    type: "html",
+    language: "HTML",
+    updated: "2025-09-17",
+    color: "#67edf6",
+    summary: {
+      pt: "Portal de consulta técnica com jornada orientada por filtros, campos operacionais e retorno de informações em uma interface escura.",
+      en: "Technical lookup portal with a filter-led journey, operational fields and information results in a dark interface.",
+    },
+    focus: {
+      pt: ["Consulta técnica", "Filtros operacionais", "Experiência dark"],
+      en: ["Technical lookup", "Operational filters", "Dark experience"],
+    },
+    stack: ["HTML", "CSS", "JavaScript", "Responsive UI"],
+    url: "https://github.com/Weslleyneri/portalconsul-repository",
+  },
+  {
+    id: "GH_07",
+    name: "consultatech",
+    title: { pt: "Consulta Tech", en: "Tech Lookup" },
+    type: "html",
+    language: "HTML",
+    updated: "2025-07-28",
+    color: "#a77dff",
+    summary: {
+      pt: "Aplicação de consulta para técnicos, organizada em uma interface compacta com seletores, campos e respostas operacionais.",
+      en: "Lookup application for technicians, organized in a compact interface with selectors, fields and operational results.",
+    },
+    focus: {
+      pt: ["Jornada de consulta", "Formulário inteligente", "Uso em campo"],
+      en: ["Lookup journey", "Smart form", "Field usage"],
+    },
+    stack: ["HTML", "CSS", "JavaScript", "Forms"],
+    url: "https://github.com/Weslleyneri/consultatech",
+  },
+  {
+    id: "GH_08",
+    name: "rotatech",
+    title: { pt: "Rota Tech", en: "Route Tech" },
+    type: "html",
+    language: "HTML",
+    updated: "2025-07-20",
+    color: "#b7ff64",
+    summary: {
+      pt: "Portal para consulta de programação por base e técnico, com atualização de informações e experiência focada na rotina de campo.",
+      en: "Scheduling lookup portal by service base and technician, with information updates and an experience focused on field routines.",
+    },
+    focus: {
+      pt: ["Programação técnica", "Seleção por base", "Rotina de campo"],
+      en: ["Technician scheduling", "Base selection", "Field routine"],
+    },
+    stack: ["HTML", "CSS", "JavaScript", "Operational UX"],
+    url: "https://github.com/Weslleyneri/rotatech",
+  },
+];
+
 const TRANSLATIONS = {
   pt: {
-    nav: { projects: "Projetos", impact: "Impacto", about: "Sobre", journey: "Jornada", contact: "Contato" },
-    hero: { status: "PORTFÓLIO 2.0 // SISTEMA ONLINE", role: "DESENVOLVEDOR DE SISTEMAS, IA & LÍDER TÉCNICO", headline: "Eu construo <strong>inteligência</strong><br />para operações reais.", summary: "Transformo problemas complexos em sistemas, automações e experiências orientadas por dados — da estratégia à entrega.", ctaProjects: "Explorar cases", ctaAi: "Pergunte ao meu portfólio" },
+    nav: { projects: "Projetos", github: "GitHub Lab", impact: "Impacto", about: "Sobre", journey: "Jornada", contact: "Contato" },
+    hero: { status: "PORTFÓLIO 2.1 // SISTEMA ONLINE", role: "DESENVOLVEDOR DE SISTEMAS, IA & LÍDER TÉCNICO", headline: "Eu construo <strong>inteligência</strong><br />para operações reais.", summary: "Transformo problemas complexos em sistemas, automações e experiências orientadas por dados — da estratégia à entrega.", ctaProjects: "Explorar cases", ctaAi: "Pergunte ao meu portfólio" },
     metrics: { cases: "CASES SELECIONADOS", tech: "TECNOLOGIAS", axes: "FRENTES DE ATUAÇÃO", delivery: "VISÃO DE ENTREGA" },
     projects: { kicker: "ARQUIVOS DE PROJETO", title: "Tecnologia que sai<br />da ideia e entra em <em>operação.</em>", intro: "Explore os cases por especialidade. Cada arquivo apresenta o desafio, minha atuação, a solução e o impacto operacional.", visible: "VISÍVEIS", open: "ABRIR CASE" },
     filters: { all: "Todos", ai: "IA", data: "Dados & BI", automation: "Automação", systems: "Sistemas", field: "Field Service" },
+    github: { kicker: "GITHUB LAB // REPOSITÓRIOS REAIS", title: "Código aberto para<br /><em>explorar por dentro.</em>", intro: "Uma curadoria visual de projetos públicos do meu GitHub. Pesquise, filtre a stack e abra cada repositório para conhecer sua estrutura.", publicRepos: "REPOSITÓRIOS PÚBLICOS", curatedRepos: "PROJETOS EM DESTAQUE", source: "FONTE: GITHUB", searchLabel: "Pesquisar repositórios", filterAll: "Todos", visible: "VISÍVEIS", sync: "CURADORIA SINCRONIZADA COM OS REPOSITÓRIOS PÚBLICOS EM SETEMBRO DE 2026" },
     impact: { kicker: "MAPA DE IMPACTO", title: "Código é o meio.<br /><em>Resultado é o destino.</em>", card1label: "VISÃO END-TO-END", card1title: "Do problema operacional à solução em produção.", card1copy: "Investigação, arquitetura, experiência, desenvolvimento, validação e comunicação da entrega em uma única visão.", domains: "Sistemas, IA, automação, dados e Field Service conectados para resolver o problema completo.", stacklabel: "ECOSSISTEMA TÉCNICO" },
     about: { kicker: "HUMANO + TECNOLOGIA", title: "Eu não desenvolvo<br />apenas telas.<br /><em>Desenho caminhos.</em>", lead: "Sou desenvolvedor de sistemas e inteligência artificial com olhar para o todo: <strong>negócio, pessoas, tecnologia e resultado.</strong>", copy: "Atuo da investigação do problema à arquitetura, desenvolvimento e validação. Como profissional sênior, acompanho projetos, reviso construções e código e apoio a evolução técnica do time.", item1title: "Estratégia técnica", item1copy: "Traduzo necessidades reais em soluções viáveis e sustentáveis.", item2title: "Qualidade de entrega", item2copy: "Valido arquitetura, experiência, construção e código.", item3title: "Evolução do time", item3copy: "Acompanho projetos e apoio desenvolvedores da equipe.", item4title: "Visão operacional", item4copy: "Construo soluções pensadas para a rotina de quem usa." },
     domains: { kicker: "MATRIZ DE DOMÍNIO", title: "Onde tecnologia e<br /><em>operação se encontram.</em>", intro: "Minha força está em conectar disciplinas diferentes para entregar experiências completas, úteis e escaláveis.", aiTitle: "IA & Agentes", aiCopy: "LLMs, assistentes e inteligência aplicada a rotinas reais.", systemTitle: "Sistemas & UX", systemCopy: "Portais responsivos, interfaces claras e jornadas digitais.", dataTitle: "Dados & Decisão", dataCopy: "Modelos, indicadores e dashboards para decisões rápidas.", autoTitle: "Automação", autoCopy: "Fluxos conectados para reduzir esforço e aumentar controle." },
@@ -266,11 +422,12 @@ const TRANSLATIONS = {
     ai: { disclaimer: "Respostas geradas a partir do conteúdo deste portfólio." },
   },
   en: {
-    nav: { projects: "Projects", impact: "Impact", about: "About", journey: "Journey", contact: "Contact" },
-    hero: { status: "PORTFOLIO 2.0 // SYSTEM ONLINE", role: "SYSTEMS & AI DEVELOPER · TECH LEAD", headline: "I build <strong>intelligence</strong><br />for real operations.", summary: "I turn complex problems into systems, automations and data-driven experiences — from strategy to delivery.", ctaProjects: "Explore cases", ctaAi: "Ask my portfolio" },
+    nav: { projects: "Projects", github: "GitHub Lab", impact: "Impact", about: "About", journey: "Journey", contact: "Contact" },
+    hero: { status: "PORTFOLIO 2.1 // SYSTEM ONLINE", role: "SYSTEMS & AI DEVELOPER · TECH LEAD", headline: "I build <strong>intelligence</strong><br />for real operations.", summary: "I turn complex problems into systems, automations and data-driven experiences — from strategy to delivery.", ctaProjects: "Explore cases", ctaAi: "Ask my portfolio" },
     metrics: { cases: "SELECTED CASES", tech: "TECHNOLOGIES", axes: "AREAS OF EXPERTISE", delivery: "DELIVERY VISION" },
     projects: { kicker: "PROJECT FILES", title: "Technology that moves<br />from idea to <em>operation.</em>", intro: "Explore cases by specialty. Each file presents the challenge, my role, the solution and its operational impact.", visible: "VISIBLE", open: "OPEN CASE" },
     filters: { all: "All", ai: "AI", data: "Data & BI", automation: "Automation", systems: "Systems", field: "Field Service" },
+    github: { kicker: "GITHUB LAB // REAL REPOSITORIES", title: "Open code ready<br /><em>to explore within.</em>", intro: "A visual curation of public projects from my GitHub. Search, filter the stack and open each repository to inspect its structure.", publicRepos: "PUBLIC REPOSITORIES", curatedRepos: "FEATURED PROJECTS", source: "SOURCE: GITHUB", searchLabel: "Search repositories", filterAll: "All", visible: "VISIBLE", sync: "CURATION SYNCED WITH PUBLIC REPOSITORIES IN SEPTEMBER 2026" },
     impact: { kicker: "IMPACT MAP", title: "Code is the medium.<br /><em>Results are the destination.</em>", card1label: "END-TO-END VISION", card1title: "From an operational problem to a production solution.", card1copy: "Discovery, architecture, experience, development, validation and delivery communication in one integrated view.", domains: "Systems, AI, automation, data and Field Service connected to solve the entire problem.", stacklabel: "TECH ECOSYSTEM" },
     about: { kicker: "HUMAN + TECHNOLOGY", title: "I do not simply build<br />screens.<br /><em>I design paths.</em>", lead: "I am a systems and AI developer with a holistic view of <strong>business, people, technology and results.</strong>", copy: "I work from problem discovery to architecture, development and validation. As a senior professional, I follow projects, review solutions and code, and support the team's technical evolution.", item1title: "Technical strategy", item1copy: "I translate real needs into viable and sustainable solutions.", item2title: "Delivery quality", item2copy: "I validate architecture, experience, implementation and code.", item3title: "Team evolution", item3copy: "I follow projects and support developers on the team.", item4title: "Operational vision", item4copy: "I build solutions around the routines of the people using them." },
     domains: { kicker: "DOMAIN MATRIX", title: "Where technology and<br /><em>operations meet.</em>", intro: "My strength is connecting different disciplines to deliver complete, useful and scalable experiences.", aiTitle: "AI & Agents", aiCopy: "LLMs, assistants and intelligence applied to real routines.", systemTitle: "Systems & UX", systemCopy: "Responsive portals, clear interfaces and digital journeys.", dataTitle: "Data & Decisions", dataCopy: "Models, KPIs and dashboards for faster decisions.", autoTitle: "Automation", autoCopy: "Connected workflows that reduce effort and improve control." },
@@ -286,18 +443,30 @@ const UI = {
   pt: {
     projectLabel: "Abrir detalhes do projeto",
     filterLabel: "Filtrar projetos",
+    repoLabel: "Selecionar repositório",
+    repoFilterLabel: "Filtrar repositórios por tecnologia",
+    repoSearchPlaceholder: "Pesquisar projeto ou tecnologia...",
+    repoNoResults: "Nenhum repositório encontrado para este filtro.",
+    repoOpen: "ABRIR REPOSITÓRIO",
+    repoUpdated: "ATUALIZADO",
+    repoStack: "STACK IDENTIFICADA",
+    repoFocus: "MAPA DO PROJETO",
+    commandRepository: "REPOSITÓRIO",
+    soundOn: "Desativar ambientação sonora",
+    soundOff: "Ativar ambientação sonora",
     askPlaceholder: "Pergunte sobre projetos, IA ou liderança...",
     commandPlaceholder: "Buscar seção ou projeto...",
     commandSection: "SEÇÃO",
     commandProject: "PROJETO",
     aiIntro: "Olá! Sou a versão interativa deste portfólio. Posso apresentar os projetos de Weslley, sua experiência com IA, stack ou atuação como líder técnico.",
-    suggestions: ["Quais projetos usam IA?", "Como ele atua como líder?", "Qual é a stack?", "Projetos de Field Service"],
+    suggestions: ["Quais projetos usam IA?", "O que está no GitHub?", "Como ele atua como líder?", "Qual é a stack?"],
     answers: {
       ai: "Os principais cases com IA são Centro de Comando, que prevê apoio de IA para síntese operacional, e Brilha Mais, com uma jornada conversacional para técnicos. Weslley também trabalha com LLMs, GPT Maker e Copilot Studio.",
       leadership: "Weslley atua de ponta a ponta: valida arquitetura, experiência e código, acompanha a evolução dos projetos, apoia desenvolvedores da equipe e comunica o status das entregas com visão de negócio.",
       stack: "A stack reúne React, JavaScript, Python, Java, PostgreSQL, Supabase, Power BI, Databricks, Power Automate, Copilot Studio, GPT Maker e LLMs.",
       field: "Os cases diretamente ligados a Field Service incluem Cervelo, Brilha Mais, Peças Backup, RAT Digital e Score de Técnicos. Eles cobrem roteirização, comunicação, logística, documentação e qualificação técnica.",
       projects: "O portfólio apresenta oito cases: Centro de Comando, Estoque ATP, Cervelo, Brilha Mais, Peças Backup, RAT Digital, Portal de Conformidade e Score de Técnicos.",
+      repositories: "O GitHub Lab reúne oito repositórios públicos em destaque, incluindo Neri AI Tech, Target Consultoria, Portal de Consulta, Sistema de Compliance e soluções para rotinas técnicas. Cada cartão permite filtrar a stack e abrir o código original.",
       contact: "Você pode falar com Weslley pelo LinkedIn ou conhecer o código e outros trabalhos no GitHub. Os dois links estão disponíveis no topo e no final do portfólio.",
       fallback: "Posso responder sobre projetos, inteligência artificial, liderança técnica, stack, Field Service ou formas de contato. Tente uma dessas áreas.",
     },
@@ -305,18 +474,30 @@ const UI = {
   en: {
     projectLabel: "Open project details",
     filterLabel: "Filter projects",
+    repoLabel: "Select repository",
+    repoFilterLabel: "Filter repositories by technology",
+    repoSearchPlaceholder: "Search project or technology...",
+    repoNoResults: "No repositories found for this filter.",
+    repoOpen: "OPEN REPOSITORY",
+    repoUpdated: "UPDATED",
+    repoStack: "IDENTIFIED STACK",
+    repoFocus: "PROJECT MAP",
+    commandRepository: "REPOSITORY",
+    soundOn: "Disable ambient sound",
+    soundOff: "Enable ambient sound",
     askPlaceholder: "Ask about projects, AI or leadership...",
     commandPlaceholder: "Search for a section or project...",
     commandSection: "SECTION",
     commandProject: "PROJECT",
     aiIntro: "Hello! I am the interactive version of this portfolio. I can present Weslley's projects, AI experience, technology stack or work as a tech lead.",
-    suggestions: ["Which projects use AI?", "How does he lead?", "What is his stack?", "Field Service projects"],
+    suggestions: ["Which projects use AI?", "What is on GitHub?", "How does he lead?", "What is his stack?"],
     answers: {
       ai: "The main AI cases are Centro de Comando, which includes AI-assisted operational summaries, and Brilha Mais, with a conversational journey for technicians. Weslley also works with LLMs, GPT Maker and Copilot Studio.",
       leadership: "Weslley works end to end: he validates architecture, experience and code, follows project progress, supports developers on the team and communicates delivery status with a business perspective.",
       stack: "The stack includes React, JavaScript, Python, Java, PostgreSQL, Supabase, Power BI, Databricks, Power Automate, Copilot Studio, GPT Maker and LLMs.",
       field: "Field Service cases include Cervelo, Brilha Mais, Peças Backup, RAT Digital and Score de Técnicos, covering routing, communication, logistics, documentation and technician qualification.",
       projects: "The portfolio presents eight cases: Centro de Comando, Estoque ATP, Cervelo, Brilha Mais, Peças Backup, RAT Digital, Portal de Conformidade and Score de Técnicos.",
+      repositories: "The GitHub Lab features eight curated public repositories, including Neri AI Tech, Target Consulting, the Operations Portal, the Compliance System and solutions for technical workflows. Every card lets visitors filter the stack and open the original code.",
       contact: "You can reach Weslley on LinkedIn or explore code and other work on GitHub. Both links are available at the top and bottom of the portfolio.",
       fallback: "I can answer about projects, artificial intelligence, technical leadership, the technology stack, Field Service or contact options. Try one of those areas.",
     },
@@ -326,15 +507,25 @@ const UI = {
 let currentLanguage = "pt";
 let currentFilter = "all";
 let activeProjectIndex = null;
+let currentRepoFilter = "all";
+let repoQuery = "";
+let activeRepoIndex = 0;
 let soundEnabled = false;
 let audioContext = null;
+let ambientMaster = null;
+let ambientNodes = [];
+let ambientSequenceTimer = null;
+let ambientStep = 0;
 
 const root = document.documentElement;
 const header = document.querySelector("#site-header");
 const projectGrid = document.querySelector("#projects-grid");
+const repoGrid = document.querySelector("#repo-grid");
+const repoTerminal = document.querySelector("#repo-terminal");
 const projectDialog = document.querySelector("#project-dialog");
 const commandDialog = document.querySelector("#command-dialog");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
 
 function getCopy(object) {
   return object[currentLanguage] || object.pt;
@@ -371,6 +562,85 @@ function renderProjects() {
     card.addEventListener("click", () => openProject(Number(card.dataset.projectIndex)));
   });
   attachTilt(projectGrid.querySelectorAll(".tilt-card"));
+}
+
+function formatRepoDate(date) {
+  return new Intl.DateTimeFormat(currentLanguage === "pt" ? "pt-BR" : "en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T12:00:00Z`)).replace(".", "").toUpperCase();
+}
+
+function filteredRepositories() {
+  const normalizedQuery = repoQuery.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return GITHUB_REPOS.map((repo, index) => ({ repo, index })).filter(({ repo }) => {
+    const matchesFilter = currentRepoFilter === "all" || repo.type === currentRepoFilter;
+    const haystack = [repo.name, getCopy(repo.title), getCopy(repo.summary), repo.language, ...repo.stack]
+      .join(" ")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    return matchesFilter && haystack.includes(normalizedQuery);
+  });
+}
+
+function renderRepoTerminal(repo, index) {
+  if (!repo) {
+    repoTerminal.innerHTML = `<div class="repo-terminal-empty"><span>404</span><p>${UI[currentLanguage].repoNoResults}</p></div>`;
+    return;
+  }
+  repoTerminal.style.setProperty("--repo-color", repo.color);
+  repoTerminal.innerHTML = `
+    <div class="repo-terminal-head"><span><i></i><i></i><i></i></span><b>github://Weslleyneri/${repo.name}</b><small>PUBLIC</small></div>
+    <div class="repo-terminal-visual" aria-hidden="true">
+      <div class="repo-orbit"><i></i><i></i><i></i><b>${String(index + 1).padStart(2, "0")}</b></div>
+      <div class="repo-pulse"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="repo-terminal-copy">
+      <p>${repo.id} // ${repo.language.toUpperCase()}</p>
+      <h3>${getCopy(repo.title)}</h3>
+      <p>${getCopy(repo.summary)}</p>
+    </div>
+    <div class="repo-terminal-map">
+      <span>${UI[currentLanguage].repoFocus}</span>
+      <div>${getCopy(repo.focus).map((item, itemIndex) => `${itemIndex ? "<i>→</i>" : ""}<b>${item}</b>`).join("")}</div>
+    </div>
+    <div class="repo-terminal-stack"><span>${UI[currentLanguage].repoStack}</span><div>${repo.stack.map((item) => `<b>${item}</b>`).join("")}</div></div>
+    <div class="repo-terminal-footer"><span>${UI[currentLanguage].repoUpdated} // ${formatRepoDate(repo.updated)}</span><a href="${repo.url}" target="_blank" rel="noreferrer">${UI[currentLanguage].repoOpen} <b>↗</b></a></div>`;
+}
+
+function renderRepositories() {
+  const visible = filteredRepositories();
+  if (!visible.some(({ index }) => index === activeRepoIndex)) activeRepoIndex = visible[0]?.index ?? null;
+  repoGrid.innerHTML = visible.length
+    ? visible.map(({ repo, index }) => `
+      <article class="repo-card-shell" role="listitem">
+        <button class="repo-card tilt-card ${index === activeRepoIndex ? "is-active" : ""}" type="button" data-repo-index="${index}" style="--repo-color:${repo.color}" aria-pressed="${index === activeRepoIndex}" aria-label="${UI[currentLanguage].repoLabel} ${getCopy(repo.title)}">
+          <div class="repo-card-head"><span>${repo.id}</span><span><i></i> PUBLIC</span></div>
+          <div class="repo-card-visual" aria-hidden="true"><div><i></i><i></i><i></i><b>&lt;/&gt;</b></div><span>${repo.language}</span></div>
+          <p>${repo.name}</p><h3>${getCopy(repo.title)}</h3><p>${getCopy(repo.summary)}</p>
+          <div class="repo-card-tags">${repo.stack.slice(0, 3).map((item) => `<span>${item}</span>`).join("")}</div>
+          <span class="repo-card-open">${index === activeRepoIndex ? "● SELECTED" : "EXPLORE"} <b>↘</b></span>
+        </button>
+      </article>`).join("")
+    : `<p class="repo-empty">${UI[currentLanguage].repoNoResults}</p>`;
+  document.querySelector("#visible-repo-count").textContent = String(visible.length).padStart(2, "0");
+  repoGrid.querySelectorAll("[data-repo-index]").forEach((card) => {
+    card.addEventListener("click", () => selectRepository(Number(card.dataset.repoIndex), true));
+  });
+  attachTilt(repoGrid.querySelectorAll(".tilt-card"));
+  renderRepoTerminal(activeRepoIndex === null ? null : GITHUB_REPOS[activeRepoIndex], activeRepoIndex ?? 0);
+}
+
+function selectRepository(index, moveToDetail = false) {
+  if (!GITHUB_REPOS[index]) return;
+  activeRepoIndex = index;
+  renderRepositories();
+  playTone(470 + index * 18, .055);
+  if (moveToDetail && window.innerWidth <= 820) {
+    window.setTimeout(() => repoTerminal.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }), 40);
+  }
 }
 
 function openProject(index) {
@@ -413,9 +683,13 @@ function applyTranslations() {
   langToggle.setAttribute("aria-label", currentLanguage === "pt" ? "Mudar idioma para inglês" : "Switch language to Portuguese");
   document.querySelector("#ai-input").placeholder = UI[currentLanguage].askPlaceholder;
   document.querySelector("#command-input").placeholder = UI[currentLanguage].commandPlaceholder;
+  document.querySelector("#repo-search").placeholder = UI[currentLanguage].repoSearchPlaceholder;
   document.querySelector("#project-filters").setAttribute("aria-label", UI[currentLanguage].filterLabel);
+  document.querySelector("#repo-filters").setAttribute("aria-label", UI[currentLanguage].repoFilterLabel);
   document.title = currentLanguage === "pt" ? "Weslley Neri | Sistemas, IA & Liderança Técnica" : "Weslley Neri | Systems, AI & Technical Leadership";
   renderProjects();
+  renderRepositories();
+  updateSoundUI();
   renderSuggestions();
   resetAssistant();
   renderCommands();
@@ -423,7 +697,7 @@ function applyTranslations() {
 }
 
 function attachTilt(elements) {
-  if (reduceMotion || window.matchMedia("(pointer: coarse)").matches) return;
+  if (reduceMotion || coarsePointer) return;
   elements.forEach((card) => {
     if (card.dataset.tiltReady) return;
     card.dataset.tiltReady = "true";
@@ -447,18 +721,36 @@ function setupBoot() {
   const boot = document.querySelector("#boot-screen");
   const progress = document.querySelector("#boot-progress");
   const status = document.querySelector("#boot-status");
+  const actions = document.querySelector("#boot-actions");
+  const soundCopy = document.querySelector("#boot-sound-copy");
+  const gatedContent = [header, document.querySelector("#conteudo"), document.querySelector(".ai-launcher"), document.querySelector("#ai-panel")];
   document.body.classList.add("booting");
+  gatedContent.forEach((element) => { if (element) element.inert = true; });
   let value = sessionStorage.getItem("wn-intro-seen") ? 88 : 0;
+  let entering = false;
   const step = sessionStorage.getItem("wn-intro-seen") ? 8 : 3;
   const delay = reduceMotion ? 5 : 42;
-  const complete = () => {
+  const revealChoice = () => {
     value = 100;
     progress.style.width = "100%";
-    status.textContent = "SYSTEM READY";
+    status.textContent = "SYSTEM READY // ESCOLHA A EXPERIÊNCIA";
+    actions.hidden = false;
+    soundCopy.hidden = false;
+    window.setTimeout(() => document.querySelector("#enter-with-sound").focus(), reduceMotion ? 10 : 180);
+  };
+  const enter = async (withSound) => {
+    if (entering) return;
+    entering = true;
+    actions.querySelectorAll("button").forEach((button) => { button.disabled = true; });
+    status.textContent = withSound ? "ATIVANDO AMBIENTAÇÃO SYNTH" : "INICIANDO EM MODO SILENCIOSO";
+    if (withSound) await startAmbient();
+    else stopAmbient();
     sessionStorage.setItem("wn-intro-seen", "true");
     window.setTimeout(() => {
       boot.classList.add("is-complete");
       document.body.classList.remove("booting");
+      gatedContent.forEach((element) => { if (element) element.inert = false; });
+      document.querySelector("#conteudo").focus({ preventScroll: true });
     }, reduceMotion ? 10 : 260);
   };
   const timer = window.setInterval(() => {
@@ -466,13 +758,24 @@ function setupBoot() {
     progress.style.width = `${value}%`;
     if (value > 33) status.textContent = "CARREGANDO PROJETOS";
     if (value > 67) status.textContent = "CONECTANDO INTERAÇÕES";
-    if (value >= 100) { window.clearInterval(timer); complete(); }
+    if (value >= 100) { window.clearInterval(timer); revealChoice(); }
   }, delay);
-  document.querySelector("#skip-boot").addEventListener("click", () => { window.clearInterval(timer); complete(); });
+  document.querySelector("#enter-with-sound").addEventListener("click", () => enter(true));
+  document.querySelector("#enter-without-sound").addEventListener("click", () => enter(false));
+  boot.addEventListener("keydown", (event) => {
+    if (actions.hidden) return;
+    const buttons = [...actions.querySelectorAll("button:not(:disabled)")];
+    if (event.key === "Escape") { event.preventDefault(); enter(false); return; }
+    if (event.key !== "Tab" || buttons.length < 2) return;
+    const first = buttons[0];
+    const last = buttons[buttons.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
 }
 
 function setupCanvas() {
-  if (reduceMotion) return;
+  if (reduceMotion || navigator.connection?.saveData) return;
   const canvas = document.querySelector("#neural-canvas");
   const context = canvas.getContext("2d");
   let points = [];
@@ -486,7 +789,7 @@ function setupCanvas() {
     canvas.width = width * ratio;
     canvas.height = height * ratio;
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const total = width < 700 ? 24 : 46;
+    const total = coarsePointer || width < 700 ? 16 : 46;
     points = Array.from({ length: total }, () => ({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - .5) * .16, vy: (Math.random() - .5) * .16 }));
   };
   const draw = () => {
@@ -516,30 +819,145 @@ function setupCanvas() {
   });
 }
 
-function playTone(frequency = 360, duration = .035) {
-  if (!soundEnabled) return;
-  audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+function createAmbientEngine() {
+  if (ambientMaster) return true;
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) return false;
+  audioContext ||= new AudioContextClass();
+
+  ambientMaster = audioContext.createGain();
+  ambientMaster.gain.value = 0.0001;
+  ambientMaster.connect(audioContext.destination);
+
+  const filter = audioContext.createBiquadFilter();
+  filter.type = "lowpass";
+  filter.frequency.value = 760;
+  filter.Q.value = 0.7;
+  filter.connect(ambientMaster);
+
+  const chord = [110, 130.81, 164.81];
+  chord.forEach((frequency, index) => {
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = index === 1 ? "triangle" : "sine";
+    oscillator.frequency.value = frequency;
+    oscillator.detune.value = index === 0 ? -5 : index === 2 ? 5 : 0;
+    gain.gain.value = index === 1 ? 0.11 : 0.16;
+    oscillator.connect(gain); gain.connect(filter); oscillator.start();
+    ambientNodes.push(oscillator, gain);
+  });
+
+  const filterLfo = audioContext.createOscillator();
+  const filterLfoGain = audioContext.createGain();
+  filterLfo.type = "sine";
+  filterLfo.frequency.value = 0.055;
+  filterLfoGain.gain.value = 210;
+  filterLfo.connect(filterLfoGain); filterLfoGain.connect(filter.frequency); filterLfo.start();
+
+  const noiseBuffer = audioContext.createBuffer(1, audioContext.sampleRate * 2, audioContext.sampleRate);
+  const noiseData = noiseBuffer.getChannelData(0);
+  for (let index = 0; index < noiseData.length; index += 1) noiseData[index] = Math.random() * 2 - 1;
+  const noise = audioContext.createBufferSource();
+  const noiseFilter = audioContext.createBiquadFilter();
+  const noiseGain = audioContext.createGain();
+  noise.buffer = noiseBuffer; noise.loop = true;
+  noiseFilter.type = "bandpass"; noiseFilter.frequency.value = 1250; noiseFilter.Q.value = 0.45;
+  noiseGain.gain.value = 0.012;
+  noise.connect(noiseFilter); noiseFilter.connect(noiseGain); noiseGain.connect(ambientMaster); noise.start();
+  ambientNodes.push(filter, filterLfo, filterLfoGain, noise, noiseFilter, noiseGain);
+  return true;
+}
+
+function playAmbientNote() {
+  if (!soundEnabled || !audioContext || audioContext.state !== "running") return;
+  const notes = [220, 261.63, 329.63, 293.66, 246.94];
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+  oscillator.type = "sine";
+  oscillator.frequency.value = notes[ambientStep % notes.length];
+  ambientStep += 1;
+  gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.045, audioContext.currentTime + 0.5);
+  gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 3.4);
+  oscillator.connect(gain); gain.connect(ambientMaster);
+  oscillator.start(); oscillator.stop(audioContext.currentTime + 3.5);
+}
+
+function updateSoundUI() {
+  const button = document.querySelector("#sound-toggle");
+  if (!button) return;
+  button.setAttribute("aria-pressed", String(soundEnabled));
+  button.querySelector(".sound-icon").textContent = soundEnabled ? "◉" : "◌";
+  button.setAttribute("aria-label", soundEnabled ? UI[currentLanguage].soundOn : UI[currentLanguage].soundOff);
+  root.classList.toggle("sound-on", soundEnabled);
+}
+
+async function startAmbient() {
+  try {
+    if (!createAmbientEngine()) return false;
+    await audioContext.resume();
+    soundEnabled = true;
+    const now = audioContext.currentTime;
+    ambientMaster.gain.cancelScheduledValues(now);
+    ambientMaster.gain.setValueAtTime(Math.max(ambientMaster.gain.value, 0.0001), now);
+    ambientMaster.gain.exponentialRampToValueAtTime(0.055, now + 1.8);
+    if (!ambientSequenceTimer) {
+      playAmbientNote();
+      ambientSequenceTimer = window.setInterval(playAmbientNote, 4600);
+    }
+    updateSoundUI();
+    return true;
+  } catch {
+    soundEnabled = false;
+    updateSoundUI();
+    return false;
+  }
+}
+
+function stopAmbient() {
+  soundEnabled = false;
+  if (ambientSequenceTimer) {
+    window.clearInterval(ambientSequenceTimer);
+    ambientSequenceTimer = null;
+  }
+  if (audioContext && ambientMaster) {
+    const now = audioContext.currentTime;
+    ambientMaster.gain.cancelScheduledValues(now);
+    ambientMaster.gain.setValueAtTime(Math.max(ambientMaster.gain.value, 0.0001), now);
+    ambientMaster.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+  }
+  updateSoundUI();
+}
+
+function playTone(frequency = 360, duration = 0.035) {
+  if (!soundEnabled || !audioContext) return;
   const oscillator = audioContext.createOscillator();
   const gain = audioContext.createGain();
   oscillator.type = "sine";
   oscillator.frequency.value = frequency;
-  gain.gain.setValueAtTime(.018, audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(.0001, audioContext.currentTime + duration);
+  gain.gain.setValueAtTime(0.012, audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
   oscillator.connect(gain); gain.connect(audioContext.destination);
   oscillator.start(); oscillator.stop(audioContext.currentTime + duration);
 }
 
 function setupSound() {
   const button = document.querySelector("#sound-toggle");
-  button.addEventListener("click", () => {
-    soundEnabled = !soundEnabled;
-    button.setAttribute("aria-pressed", String(soundEnabled));
-    button.querySelector(".sound-icon").textContent = soundEnabled ? "◉" : "◌";
-    button.setAttribute("aria-label", soundEnabled ? "Desativar efeitos sonoros" : "Ativar efeitos sonoros");
-    playTone(520, .08);
+  updateSoundUI();
+  button.addEventListener("click", async () => {
+    if (soundEnabled) stopAmbient();
+    else {
+      await startAmbient();
+      playTone(520, 0.08);
+    }
   });
   document.addEventListener("click", (event) => {
-    if (soundEnabled && event.target.closest("a, button") && !event.target.closest("#sound-toggle")) playTone(330, .025);
+    if (soundEnabled && event.target.closest("a, button") && !event.target.closest("#sound-toggle, #boot-screen")) playTone(330, 0.025);
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (!audioContext || !soundEnabled) return;
+    if (document.hidden) audioContext.suspend().catch(() => {});
+    else audioContext.resume().catch(() => {});
   });
 }
 
@@ -558,6 +976,7 @@ function getAiAnswer(question) {
   if (/lider|lead|time|team|senior|codigo|code|arquitet/.test(normalized)) return answers.leadership;
   if (/stack|tech|tecnolog|react|python|java|power bi|databricks|sql/.test(normalized)) return answers.stack;
   if (/field|campo|tecnico|technician|rota|route/.test(normalized)) return answers.field;
+  if (/repositorio|repository|github|codigo aberto|open source/.test(normalized)) return answers.repositories;
   if (/projet|project|case|portfolio/.test(normalized)) return answers.projects;
   if (/contato|contact|falar|hire|contratar|linkedin|github/.test(normalized)) return answers.contact;
   return answers.fallback;
@@ -599,11 +1018,12 @@ function setupAssistant() {
 
 function commandItems() {
   const sectionNames = currentLanguage === "pt"
-    ? [["inicio", "Início"], ["projetos", "Projetos"], ["impacto", "Mapa de impacto"], ["sobre", "Sobre mim"], ["jornada", "Jornada profissional"], ["curriculo", "Currículo"], ["contato", "Contato"]]
-    : [["inicio", "Home"], ["projetos", "Projects"], ["impacto", "Impact map"], ["sobre", "About me"], ["jornada", "Professional journey"], ["curriculo", "Résumé"], ["contato", "Contact"]];
+    ? [["inicio", "Início"], ["projetos", "Projetos"], ["github-lab", "GitHub Lab"], ["impacto", "Mapa de impacto"], ["sobre", "Sobre mim"], ["jornada", "Jornada profissional"], ["curriculo", "Currículo"], ["contato", "Contato"]]
+    : [["inicio", "Home"], ["projetos", "Projects"], ["github-lab", "GitHub Lab"], ["impacto", "Impact map"], ["sobre", "About me"], ["jornada", "Professional journey"], ["curriculo", "Résumé"], ["contato", "Contact"]];
   return [
     ...sectionNames.map(([id, label]) => ({ type: "section", id, label })),
     ...PROJECTS.map((project, index) => ({ type: "project", id: index, label: project.title })),
+    ...GITHUB_REPOS.map((repo, index) => ({ type: "repository", id: index, label: `${getCopy(repo.title)} · ${repo.name}` })),
   ];
 }
 
@@ -613,7 +1033,11 @@ function renderCommands(query = "") {
   const items = commandItems().filter((item) => item.label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(normalized));
   selectedCommand = Math.min(selectedCommand, Math.max(items.length - 1, 0));
   const list = document.querySelector("#command-list");
-  list.innerHTML = items.map((item, index) => `<button class="command-item ${index === selectedCommand ? "is-selected" : ""}" type="button" data-command-type="${item.type}" data-command-id="${item.id}"><span>${item.type === "section" ? "§" : "◇"}</span><strong>${item.label}</strong><small>${item.type === "section" ? UI[currentLanguage].commandSection : UI[currentLanguage].commandProject}</small></button>`).join("");
+  list.innerHTML = items.map((item, index) => {
+    const icon = item.type === "section" ? "§" : item.type === "repository" ? "⌘" : "◇";
+    const typeLabel = item.type === "section" ? UI[currentLanguage].commandSection : item.type === "repository" ? UI[currentLanguage].commandRepository : UI[currentLanguage].commandProject;
+    return `<button class="command-item ${index === selectedCommand ? "is-selected" : ""}" type="button" data-command-type="${item.type}" data-command-id="${item.id}"><span>${icon}</span><strong>${item.label}</strong><small>${typeLabel}</small></button>`;
+  }).join("");
   list.querySelectorAll(".command-item").forEach((button) => button.addEventListener("click", () => executeCommand(button)));
   return items;
 }
@@ -621,6 +1045,10 @@ function renderCommands(query = "") {
 function executeCommand(button) {
   commandDialog.close();
   if (button.dataset.commandType === "project") openProject(Number(button.dataset.commandId));
+  else if (button.dataset.commandType === "repository") {
+    selectRepository(Number(button.dataset.commandId));
+    document.querySelector("#github-lab")?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+  }
   else document.getElementById(button.dataset.commandId)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
 }
 
@@ -656,6 +1084,21 @@ function setupFilters() {
       currentFilter = button.dataset.filter;
       document.querySelectorAll("#project-filters button").forEach((item) => item.classList.toggle("is-active", item === button));
       renderProjects();
+    });
+  });
+}
+
+function setupRepositoryExplorer() {
+  const search = document.querySelector("#repo-search");
+  search.addEventListener("input", () => {
+    repoQuery = search.value.trim();
+    renderRepositories();
+  });
+  document.querySelectorAll("#repo-filters button").forEach((button) => {
+    button.addEventListener("click", () => {
+      currentRepoFilter = button.dataset.repoFilter;
+      document.querySelectorAll("#repo-filters button").forEach((item) => item.classList.toggle("is-active", item === button));
+      renderRepositories();
     });
   });
 }
@@ -701,7 +1144,9 @@ function setupDialogs() {
 function init() {
   setupBoot();
   renderProjects();
+  renderRepositories();
   setupFilters();
+  setupRepositoryExplorer();
   setupDialogs();
   setupNavigation();
   setupReveals();

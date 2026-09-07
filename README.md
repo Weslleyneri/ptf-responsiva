@@ -2,6 +2,8 @@
 
 Portfolio pessoal de Weslley Neri, desenvolvido como uma experiencia futurista para apresentar projetos de sistemas, inteligencia artificial, dados, automacao e lideranca tecnica.
 
+Versao atual: **2.1 - GitHub Lab + Ambient Experience**.
+
 ## Acessar o portfolio
 
 <https://weslleyneri.github.io/ptf-responsiva/>
@@ -9,14 +11,17 @@ Portfolio pessoal de Weslley Neri, desenvolvido como uma experiencia futurista p
 ## Recursos
 
 - Oito cases interativos com filtros por especialidade
+- GitHub Lab com oito repositorios reais em destaque, pesquisa, filtros por tecnologia e painel tecnico interativo
 - Detalhes de desafio, atuacao, solucao, impacto e arquitetura
 - Assistente local `PORTFOLIO_AI`
 - Busca rapida por secoes e projetos com `Ctrl + K`
 - Conteudo em portugues e ingles
 - Painel de impacto, matriz tecnica e jornada profissional
 - Curriculo profissional em PDF
-- Animacoes 3D, efeitos sonoros opcionais e abertura futurista
-- Layout responsivo para computador, tablet e celular
+- Ambientacao synth procedural e original, iniciada somente apos a escolha do visitante
+- Abertura com opcoes `Entrar com som` e `Entrar sem som`, alem de controle permanente no cabecalho
+- Animacoes 3D e microinteracoes adaptadas a mouse, toque e gestos
+- Layout responsivo para computador, tablet e celular, incluindo safe areas e dialogs em formato bottom sheet
 - Compatibilidade com preferencias de movimento reduzido
 
 ## Tecnologias
