@@ -18,7 +18,8 @@ Versao atual: **2.1 - GitHub Lab + Ambient Experience**.
 - Conteudo em portugues e ingles
 - Painel de impacto, matriz tecnica e jornada profissional
 - Curriculo profissional em PDF
-- Ambientacao synth procedural e original, iniciada somente apos a escolha do visitante
+- Trilha synth original armazenada no proprio portfolio, com sintetizador Web Audio como contingencia
+- Audio iniciado somente apos a escolha do visitante, compativel com as politicas de reproducao dos navegadores
 - Abertura com opcoes `Entrar com som` e `Entrar sem som`, alem de controle permanente no cabecalho
 - Animacoes 3D e microinteracoes adaptadas a mouse, toque e gestos
 - Layout responsivo para computador, tablet e celular, incluindo safe areas e dialogs em formato bottom sheet

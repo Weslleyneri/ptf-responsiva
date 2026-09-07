@@ -454,6 +454,9 @@ const UI = {
     commandRepository: "REPOSITÓRIO",
     soundOn: "Desativar ambientação sonora",
     soundOff: "Ativar ambientação sonora",
+    soundActive: "SOM AMBIENTE ATIVO // USE O CONTROLE NO TOPO PARA DESATIVAR",
+    soundInactive: "SOM AMBIENTE DESATIVADO",
+    soundBlocked: "O NAVEGADOR BLOQUEOU O ÁUDIO // TOQUE NOVAMENTE NO BOTÃO DE SOM",
     askPlaceholder: "Pergunte sobre projetos, IA ou liderança...",
     commandPlaceholder: "Buscar seção ou projeto...",
     commandSection: "SEÇÃO",
@@ -485,6 +488,9 @@ const UI = {
     commandRepository: "REPOSITORY",
     soundOn: "Disable ambient sound",
     soundOff: "Enable ambient sound",
+    soundActive: "AMBIENT SOUND ACTIVE // USE THE TOP CONTROL TO DISABLE IT",
+    soundInactive: "AMBIENT SOUND DISABLED",
+    soundBlocked: "THE BROWSER BLOCKED AUDIO // TAP THE SOUND BUTTON AGAIN",
     askPlaceholder: "Ask about projects, AI or leadership...",
     commandPlaceholder: "Search for a section or project...",
     commandSection: "SECTION",
@@ -516,12 +522,15 @@ let ambientMaster = null;
 let ambientNodes = [];
 let ambientSequenceTimer = null;
 let ambientStep = 0;
+let soundToastTimer = null;
 
 const root = document.documentElement;
 const header = document.querySelector("#site-header");
 const projectGrid = document.querySelector("#projects-grid");
 const repoGrid = document.querySelector("#repo-grid");
 const repoTerminal = document.querySelector("#repo-terminal");
+const ambientAudio = document.querySelector("#ambient-audio");
+const soundToast = document.querySelector("#sound-toast");
 const projectDialog = document.querySelector("#project-dialog");
 const commandDialog = document.querySelector("#command-dialog");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -743,15 +752,16 @@ function setupBoot() {
     entering = true;
     actions.querySelectorAll("button").forEach((button) => { button.disabled = true; });
     status.textContent = withSound ? "ATIVANDO AMBIENTAÇÃO SYNTH" : "INICIANDO EM MODO SILENCIOSO";
-    if (withSound) await startAmbient();
-    else stopAmbient();
+    const started = withSound ? await startAmbient() : false;
+    if (!withSound) stopAmbient();
+    status.textContent = withSound ? (started ? "SOM ATIVO // ENTRANDO" : "ÁUDIO BLOQUEADO // USE O CONTROLE NO TOPO") : "MODO SILENCIOSO // ENTRANDO";
     sessionStorage.setItem("wn-intro-seen", "true");
     window.setTimeout(() => {
       boot.classList.add("is-complete");
       document.body.classList.remove("booting");
       gatedContent.forEach((element) => { if (element) element.inert = false; });
       document.querySelector("#conteudo").focus({ preventScroll: true });
-    }, reduceMotion ? 10 : 260);
+    }, reduceMotion ? 10 : withSound ? 520 : 260);
   };
   const timer = window.setInterval(() => {
     value = Math.min(100, value + step + Math.random() * 5);
@@ -888,34 +898,58 @@ function updateSoundUI() {
   if (!button) return;
   button.setAttribute("aria-pressed", String(soundEnabled));
   button.querySelector(".sound-icon").textContent = soundEnabled ? "◉" : "◌";
+  button.querySelector("small").textContent = soundEnabled ? "ON" : "SOM";
   button.setAttribute("aria-label", soundEnabled ? UI[currentLanguage].soundOn : UI[currentLanguage].soundOff);
   root.classList.toggle("sound-on", soundEnabled);
 }
 
+function announceSound(message) {
+  if (!soundToast) return;
+  window.clearTimeout(soundToastTimer);
+  soundToast.textContent = message;
+  soundToast.classList.add("is-visible");
+  soundToastTimer = window.setTimeout(() => soundToast.classList.remove("is-visible"), 3400);
+}
+
 async function startAmbient() {
+  let mediaPromise = Promise.reject(new Error("Audio element unavailable"));
+  if (ambientAudio) {
+    ambientAudio.volume = 0.48;
+    ambientAudio.muted = false;
+    try { mediaPromise = Promise.resolve(ambientAudio.play()); } catch (error) { mediaPromise = Promise.reject(error); }
+  }
+
+  let contextPromise = Promise.reject(new Error("Web Audio unavailable"));
   try {
-    if (!createAmbientEngine()) return false;
-    await audioContext.resume();
-    soundEnabled = true;
+    if (createAmbientEngine()) contextPromise = audioContext.resume();
+  } catch (error) {
+    contextPromise = Promise.reject(error);
+  }
+
+  const [mediaResult, contextResult] = await Promise.allSettled([mediaPromise, contextPromise]);
+  const mediaStarted = mediaResult.status === "fulfilled" && ambientAudio && !ambientAudio.paused;
+  const contextStarted = contextResult.status === "fulfilled" && audioContext?.state === "running";
+  soundEnabled = Boolean(mediaStarted || contextStarted);
+
+  if (contextStarted) {
     const now = audioContext.currentTime;
     ambientMaster.gain.cancelScheduledValues(now);
     ambientMaster.gain.setValueAtTime(Math.max(ambientMaster.gain.value, 0.0001), now);
-    ambientMaster.gain.exponentialRampToValueAtTime(0.055, now + 1.8);
-    if (!ambientSequenceTimer) {
+    ambientMaster.gain.exponentialRampToValueAtTime(mediaStarted ? 0.0001 : 0.11, now + (mediaStarted ? 0.3 : 1.2));
+    if (!mediaStarted && !ambientSequenceTimer) {
       playAmbientNote();
       ambientSequenceTimer = window.setInterval(playAmbientNote, 4600);
     }
-    updateSoundUI();
-    return true;
-  } catch {
-    soundEnabled = false;
-    updateSoundUI();
-    return false;
   }
+
+  updateSoundUI();
+  announceSound(soundEnabled ? UI[currentLanguage].soundActive : UI[currentLanguage].soundBlocked);
+  return soundEnabled;
 }
 
-function stopAmbient() {
+function stopAmbient(showStatus = false) {
   soundEnabled = false;
+  if (ambientAudio) ambientAudio.pause();
   if (ambientSequenceTimer) {
     window.clearInterval(ambientSequenceTimer);
     ambientSequenceTimer = null;
@@ -927,10 +961,11 @@ function stopAmbient() {
     ambientMaster.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
   }
   updateSoundUI();
+  if (showStatus) announceSound(UI[currentLanguage].soundInactive);
 }
 
 function playTone(frequency = 360, duration = 0.035) {
-  if (!soundEnabled || !audioContext) return;
+  if (!soundEnabled || !audioContext || audioContext.state !== "running") return;
   const oscillator = audioContext.createOscillator();
   const gain = audioContext.createGain();
   oscillator.type = "sine";
@@ -945,7 +980,7 @@ function setupSound() {
   const button = document.querySelector("#sound-toggle");
   updateSoundUI();
   button.addEventListener("click", async () => {
-    if (soundEnabled) stopAmbient();
+    if (soundEnabled) stopAmbient(true);
     else {
       await startAmbient();
       playTone(520, 0.08);
