@@ -249,6 +249,17 @@ const PROJECTS = [
   },
 ];
 
+const PROJECT_EVIDENCE = [
+  { pt: ["Regras de SLA", "Histórico de tratativas", "Visão executiva"], en: ["SLA rules", "Action history", "Executive view"] },
+  { pt: ["Modelagem DAX", "View materializada", "Alertas por limite"], en: ["DAX modeling", "Materialized view", "Limit alerts"] },
+  { pt: ["Priorização", "Geolocalização", "Otimização de rotas"], en: ["Prioritization", "Geolocation", "Route optimization"] },
+  { pt: ["Jornada conversacional", "Escalonamento D+2", "Indicadores de campo"], en: ["Conversational journey", "D+2 escalation", "Field indicators"] },
+  { pt: ["Rastreabilidade", "Consumo por técnico", "Saldo de peças"], en: ["Traceability", "Usage by technician", "Parts balance"] },
+  { pt: ["Assinatura mobile", "PDF padronizado", "Compartilhamento nativo"], en: ["Mobile signature", "Standardized PDF", "Native sharing"] },
+  { pt: ["Perfis de acesso", "Fluxo auditável", "Privacidade"], en: ["Access roles", "Auditable flow", "Privacy"] },
+  { pt: ["Motor de regras", "Score consolidado", "Perfil de atendimento"], en: ["Rules engine", "Consolidated score", "Service profile"] },
+];
+
 const GITHUB_REPOS = [
   {
     id: "GH_01",
@@ -406,10 +417,10 @@ const GITHUB_REPOS = [
 
 const TRANSLATIONS = {
   pt: {
-    nav: { projects: "Projetos", github: "GitHub Lab", impact: "Impacto", about: "Sobre", journey: "Jornada", contact: "Contato" },
-    hero: { status: "PORTFÓLIO 2.1 // SISTEMA ONLINE", role: "DESENVOLVEDOR DE SISTEMAS, IA & LÍDER TÉCNICO", headline: "Eu construo <strong>inteligência</strong><br />para operações reais.", summary: "Transformo problemas complexos em sistemas, automações e experiências orientadas por dados — da estratégia à entrega.", ctaProjects: "Explorar cases", ctaAi: "Pergunte ao meu portfólio" },
-    metrics: { cases: "CASES SELECIONADOS", tech: "TECNOLOGIAS", axes: "FRENTES DE ATUAÇÃO", delivery: "VISÃO DE ENTREGA" },
-    projects: { kicker: "ARQUIVOS DE PROJETO", title: "Tecnologia que sai<br />da ideia e entra em <em>operação.</em>", intro: "Explore os cases por especialidade. Cada arquivo apresenta o desafio, minha atuação, a solução e o impacto operacional.", visible: "VISÍVEIS", open: "ABRIR CASE" },
+    nav: { home: "Início", projects: "Projetos", github: "GitHub Lab", impact: "Impacto", about: "Sobre", journey: "Jornada", contact: "Contato" },
+    hero: { status: "PORTFÓLIO 2.3 // SISTEMA ONLINE", role: "SISTEMAS • INTELIGÊNCIA ARTIFICIAL • LIDERANÇA TÉCNICA", headline: "Desenvolvedor Sênior<br />de <strong>Sistemas e IA.</strong>", summary: "Liderança técnica, produtos digitais e automação para transformar desafios operacionais em soluções que funcionam no mundo real.", ctaProjects: "Explorar projetos", ctaResume: "Baixar currículo", ctaAi: "Pergunte ao meu portfólio" },
+    metrics: { cases: "CASES SELECIONADOS", tech: "TECNOLOGIAS", axes: "FRENTES DE ATUAÇÃO", leadership: "Liderança técnica", delivery: "VISÃO END-TO-END" },
+    projects: { kicker: "PROJETOS EM DESTAQUE", title: "Evidências de tecnologia<br />aplicada à <em>operação.</em>", intro: "Cada case mostra o problema, minha atuação, a arquitetura da solução e as evidências técnicas da entrega.", visible: "VISÍVEIS", open: "ABRIR CASE", evidence: "EVIDÊNCIAS" },
     filters: { all: "Todos", ai: "IA", data: "Dados & BI", automation: "Automação", systems: "Sistemas", field: "Field Service" },
     github: { kicker: "GITHUB LAB // REPOSITÓRIOS REAIS", title: "Código aberto para<br /><em>explorar por dentro.</em>", intro: "Uma curadoria visual de projetos públicos do meu GitHub. Pesquise, filtre a stack e abra cada repositório para conhecer sua estrutura.", publicRepos: "REPOSITÓRIOS PÚBLICOS", curatedRepos: "PROJETOS EM DESTAQUE", source: "FONTE: GITHUB", searchLabel: "Pesquisar repositórios", filterAll: "Todos", visible: "VISÍVEIS", sync: "CURADORIA SINCRONIZADA COM OS REPOSITÓRIOS PÚBLICOS EM SETEMBRO DE 2026" },
     impact: { kicker: "MAPA DE IMPACTO", title: "Código é o meio.<br /><em>Resultado é o destino.</em>", card1label: "VISÃO END-TO-END", card1title: "Do problema operacional à solução em produção.", card1copy: "Investigação, arquitetura, experiência, desenvolvimento, validação e comunicação da entrega em uma única visão.", domains: "Sistemas, IA, automação, dados e Field Service conectados para resolver o problema completo.", stacklabel: "ECOSSISTEMA TÉCNICO" },
@@ -417,15 +428,15 @@ const TRANSLATIONS = {
     domains: { kicker: "MATRIZ DE DOMÍNIO", title: "Onde tecnologia e<br /><em>operação se encontram.</em>", intro: "Minha força está em conectar disciplinas diferentes para entregar experiências completas, úteis e escaláveis.", aiTitle: "IA & Agentes", aiCopy: "LLMs, assistentes e inteligência aplicada a rotinas reais.", systemTitle: "Sistemas & UX", systemCopy: "Portais responsivos, interfaces claras e jornadas digitais.", dataTitle: "Dados & Decisão", dataCopy: "Modelos, indicadores e dashboards para decisões rápidas.", autoTitle: "Automação", autoCopy: "Fluxos conectados para reduzir esforço e aumentar controle." },
     journey: { kicker: "EVOLUÇÃO PROFISSIONAL", title: "Uma carreira construída<br />em <em>movimento contínuo.</em>", step1meta: "BASE", step1title: "Operação & Suporte", step1copy: "Conhecer o problema por dentro e entender o impacto na ponta.", step2meta: "CONSTRUÇÃO", step2title: "Sistemas & Automação", step2copy: "Transformar tarefas manuais em experiências digitais.", step3meta: "INTELIGÊNCIA", step3title: "Dados & IA", step3copy: "Conectar informação, contexto e modelos para apoiar decisões.", step4meta: "LIDERANÇA", step4title: "Qualidade & Time", step4copy: "Validar entregas e apoiar a evolução técnica das pessoas.", step5meta: "PRÓXIMO NÍVEL", step5copy: "Unir experiência e visão de futuro para criar novas soluções." },
     resume: { kicker: "PERFIL EXECUTIVO", title: "Experiência técnica.<br /><em>Visão de negócio.</em>", copy: "Um perfil multidisciplinar para liderar, desenvolver e acelerar produtos digitais, automações e iniciativas de inteligência artificial.", roleLabel: "POSICIONAMENTO", roleValue: "Desenvolvedor Sênior & Líder Técnico", focusLabel: "FOCO", focusValue: "Sistemas, IA, Dados & Automação", diffLabel: "DIFERENCIAL", diffValue: "Tecnologia conectada à operação", download: "Baixar currículo", linkedin: "Ver LinkedIn" },
-    contact: { kicker: "PRÓXIMA CONEXÃO", title: "Vamos transformar<br />complexidade em <em>impacto?</em>", cta: "Iniciar conversa", ai: "Explorar com IA" },
+    contact: { kicker: "PRÓXIMA CONEXÃO", title: "Vamos transformar<br />complexidade em <em>impacto?</em>", availability: "Aberto a conexões profissionais, produtos digitais e novos projetos.", linkedinDirect: "Conectar profissionalmente", resumeLabel: "CURRÍCULO", resumeDirect: "Baixar versão em PDF", cta: "Iniciar conversa", ai: "Explorar com IA" },
     dialog: { challenge: "O DESAFIO", role: "MINHA ATUAÇÃO", solution: "A SOLUÇÃO", outcome: "IMPACTO GERADO", architecture: "ARQUITETURA DA EXPERIÊNCIA" },
     ai: { disclaimer: "Respostas geradas a partir do conteúdo deste portfólio." },
   },
   en: {
-    nav: { projects: "Projects", github: "GitHub Lab", impact: "Impact", about: "About", journey: "Journey", contact: "Contact" },
-    hero: { status: "PORTFOLIO 2.1 // SYSTEM ONLINE", role: "SYSTEMS & AI DEVELOPER · TECH LEAD", headline: "I build <strong>intelligence</strong><br />for real operations.", summary: "I turn complex problems into systems, automations and data-driven experiences — from strategy to delivery.", ctaProjects: "Explore cases", ctaAi: "Ask my portfolio" },
-    metrics: { cases: "SELECTED CASES", tech: "TECHNOLOGIES", axes: "AREAS OF EXPERTISE", delivery: "DELIVERY VISION" },
-    projects: { kicker: "PROJECT FILES", title: "Technology that moves<br />from idea to <em>operation.</em>", intro: "Explore cases by specialty. Each file presents the challenge, my role, the solution and its operational impact.", visible: "VISIBLE", open: "OPEN CASE" },
+    nav: { home: "Home", projects: "Projects", github: "GitHub Lab", impact: "Impact", about: "About", journey: "Journey", contact: "Contact" },
+    hero: { status: "PORTFOLIO 2.3 // SYSTEM ONLINE", role: "SYSTEMS • ARTIFICIAL INTELLIGENCE • TECHNICAL LEADERSHIP", headline: "Senior Systems and<br /><strong>AI Developer.</strong>", summary: "Technical leadership, digital products and automation that turn operational challenges into solutions that work in the real world.", ctaProjects: "Explore projects", ctaResume: "Download résumé", ctaAi: "Ask my portfolio" },
+    metrics: { cases: "SELECTED CASES", tech: "TECHNOLOGIES", axes: "AREAS OF EXPERTISE", leadership: "Technical leadership", delivery: "END-TO-END VISION" },
+    projects: { kicker: "FEATURED PROJECTS", title: "Evidence of technology<br />applied to <em>operations.</em>", intro: "Each case presents the problem, my role, solution architecture and technical evidence behind the delivery.", visible: "VISIBLE", open: "OPEN CASE", evidence: "EVIDENCE" },
     filters: { all: "All", ai: "AI", data: "Data & BI", automation: "Automation", systems: "Systems", field: "Field Service" },
     github: { kicker: "GITHUB LAB // REAL REPOSITORIES", title: "Open code ready<br /><em>to explore within.</em>", intro: "A visual curation of public projects from my GitHub. Search, filter the stack and open each repository to inspect its structure.", publicRepos: "PUBLIC REPOSITORIES", curatedRepos: "FEATURED PROJECTS", source: "SOURCE: GITHUB", searchLabel: "Search repositories", filterAll: "All", visible: "VISIBLE", sync: "CURATION SYNCED WITH PUBLIC REPOSITORIES IN SEPTEMBER 2026" },
     impact: { kicker: "IMPACT MAP", title: "Code is the medium.<br /><em>Results are the destination.</em>", card1label: "END-TO-END VISION", card1title: "From an operational problem to a production solution.", card1copy: "Discovery, architecture, experience, development, validation and delivery communication in one integrated view.", domains: "Systems, AI, automation, data and Field Service connected to solve the entire problem.", stacklabel: "TECH ECOSYSTEM" },
@@ -433,7 +444,7 @@ const TRANSLATIONS = {
     domains: { kicker: "DOMAIN MATRIX", title: "Where technology and<br /><em>operations meet.</em>", intro: "My strength is connecting different disciplines to deliver complete, useful and scalable experiences.", aiTitle: "AI & Agents", aiCopy: "LLMs, assistants and intelligence applied to real routines.", systemTitle: "Systems & UX", systemCopy: "Responsive portals, clear interfaces and digital journeys.", dataTitle: "Data & Decisions", dataCopy: "Models, KPIs and dashboards for faster decisions.", autoTitle: "Automation", autoCopy: "Connected workflows that reduce effort and improve control." },
     journey: { kicker: "PROFESSIONAL EVOLUTION", title: "A career built through<br /><em>continuous motion.</em>", step1meta: "FOUNDATION", step1title: "Operations & Support", step1copy: "Understand the problem from within and its impact at the edge.", step2meta: "BUILD", step2title: "Systems & Automation", step2copy: "Turn manual tasks into digital experiences.", step3meta: "INTELLIGENCE", step3title: "Data & AI", step3copy: "Connect information, context and models to support decisions.", step4meta: "LEADERSHIP", step4title: "Quality & Team", step4copy: "Validate deliveries and support people's technical growth.", step5meta: "NEXT LEVEL", step5copy: "Combine experience and a future-facing vision to create new solutions." },
     resume: { kicker: "EXECUTIVE PROFILE", title: "Technical experience.<br /><em>Business vision.</em>", copy: "A multidisciplinary profile to lead, build and accelerate digital products, automations and artificial intelligence initiatives.", roleLabel: "POSITIONING", roleValue: "Senior Developer & Tech Lead", focusLabel: "FOCUS", focusValue: "Systems, AI, Data & Automation", diffLabel: "DIFFERENTIAL", diffValue: "Technology connected to operations", download: "Download résumé", linkedin: "View LinkedIn" },
-    contact: { kicker: "NEXT CONNECTION", title: "Shall we turn<br />complexity into <em>impact?</em>", cta: "Start a conversation", ai: "Explore with AI" },
+    contact: { kicker: "NEXT CONNECTION", title: "Shall we turn<br />complexity into <em>impact?</em>", availability: "Open to professional connections, digital products and new projects.", linkedinDirect: "Connect professionally", resumeLabel: "RÉSUMÉ", resumeDirect: "Download PDF version", cta: "Start a conversation", ai: "Explore with AI" },
     dialog: { challenge: "THE CHALLENGE", role: "MY ROLE", solution: "THE SOLUTION", outcome: "IMPACT", architecture: "EXPERIENCE ARCHITECTURE" },
     ai: { disclaimer: "Answers are generated from this portfolio's content." },
   },
@@ -547,7 +558,7 @@ function getNested(object, path) {
 function visualMarkup(type) {
   const top = `<div class="mini-top"><i></i><i></i><i></i><b>LIVE_VIEW</b></div>`;
   if (type === "dashboard" || type === "stock") {
-    return `<div class="visual-shell">${top}<div class="mini-stat-grid"><div class="mini-stat"><strong>${type === "stock" ? "R$" : "284"}</strong><span>${type === "stock" ? "VALOR" : "BACKLOG"}</span></div><div class="mini-stat"><strong>${type === "stock" ? "92%" : "37"}</strong><span>${type === "stock" ? "LIMITE" : "CRÍTICOS"}</span></div><div class="mini-stat"><strong>${type === "stock" ? "ATP" : "D-1"}</strong><span>${type === "stock" ? "UNIDADES" : "ALERTA"}</span></div></div><div class="mini-chart"><i style="--h:38%"></i><i style="--h:72%"></i><i style="--h:53%"></i><i style="--h:88%"></i><i style="--h:65%"></i><i style="--h:94%"></i><i style="--h:49%"></i></div></div>`;
+    return `<div class="visual-shell">${top}<div class="mini-stat-grid"><div class="mini-stat"><strong>${type === "stock" ? "R$" : "SLA"}</strong><span>${type === "stock" ? "VALOR" : "MONITOR"}</span></div><div class="mini-stat"><strong>${type === "stock" ? "%" : "D-1"}</strong><span>${type === "stock" ? "LIMITE" : "ALERTAS"}</span></div><div class="mini-stat"><strong>${type === "stock" ? "ATP" : "API"}</strong><span>${type === "stock" ? "UNIDADES" : "DADOS"}</span></div></div><div class="mini-chart"><i style="--h:38%"></i><i style="--h:72%"></i><i style="--h:53%"></i><i style="--h:88%"></i><i style="--h:65%"></i><i style="--h:94%"></i><i style="--h:49%"></i></div></div>`;
   }
   if (type === "route") return `<div class="visual-shell">${top}<div class="mini-route"><i></i><i></i><i></i></div></div>`;
   if (type === "chat") return `<div class="visual-shell">${top}<div class="mini-chat"><p>Olá, como está sua rota hoje?</p><p>Chamados atualizados. Status enviado.</p><p>Indicadores sincronizados ✓</p></div></div>`;
@@ -557,6 +568,31 @@ function visualMarkup(type) {
   return `<div class="visual-shell">${top}<div class="mini-score"><strong>87</strong><span>SCORE</span></div></div>`;
 }
 
+function projectSlug(project) {
+  return `case-${project.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+}
+
+function renderCommandLanding() {
+  const featured = document.querySelector("#featured-projects");
+  const quickGrid = document.querySelector("#github-quick-grid");
+  if (featured) {
+    featured.innerHTML = PROJECTS.slice(0, 3).map((project, index) => `
+      <button class="featured-card" type="button" data-featured-index="${index}" style="--project-color:${project.color}" aria-label="${UI[currentLanguage].projectLabel} ${project.title}">
+        <div class="featured-head"><p><strong>${project.title}</strong><small>${getCopy(project.category)}</small></p><span>↗</span></div>
+        <div class="project-visual">${visualMarkup(project.visual)}</div>
+        <div class="featured-copy"><p>${getCopy(project.summary)}</p></div>
+        <div class="featured-proof">${getCopy(PROJECT_EVIDENCE[index]).map((item) => `<span>${item}</span>`).join("")}</div>
+      </button>`).join("");
+    featured.querySelectorAll("[data-featured-index]").forEach((card) => card.addEventListener("click", () => openProject(Number(card.dataset.featuredIndex))));
+  }
+  if (quickGrid) {
+    quickGrid.innerHTML = GITHUB_REPOS.slice(0, 4).map((repo) => `
+      <a class="github-quick-card" href="${repo.url}" target="_blank" rel="noreferrer" style="--repo-color:${repo.color}" aria-label="${UI[currentLanguage].repoOpen}: ${getCopy(repo.title)}">
+        <strong>${repo.name}</strong><span>↗</span><small>● ${repo.language}</small>
+      </a>`).join("");
+  }
+}
+
 function renderProjects() {
   const visible = PROJECTS.map((project, index) => ({ project, index })).filter(({ project }) => currentFilter === "all" || project.filters.includes(currentFilter));
   projectGrid.innerHTML = visible.map(({ project, index }) => `
@@ -564,6 +600,7 @@ function renderProjects() {
       <div class="project-top"><span>${project.id} // CASE_FILE</span><span><i></i> ${getCopy(project.category)}</span></div>
       <div class="project-visual">${visualMarkup(project.visual)}</div>
       <div class="project-copy"><p class="project-category">${getCopy(project.category)}</p><h3>${project.title}</h3><p>${getCopy(project.summary)}</p></div>
+      <div class="project-evidence"><small>${TRANSLATIONS[currentLanguage].projects.evidence}</small><div>${getCopy(PROJECT_EVIDENCE[index]).map((item) => `<span>${item}</span>`).join("")}</div></div>
       <div class="project-footer"><div class="project-tags">${project.tags.slice(0, 4).map((tag) => `<span>${tag}</span>`).join("")}</div><span class="project-open">${TRANSLATIONS[currentLanguage].projects.open} ↗</span></div>
     </button>`).join("");
   document.querySelector("#visible-project-count").textContent = String(visible.length).padStart(2, "0");
@@ -661,6 +698,7 @@ function openProject(index) {
   document.querySelector("#dialog-category").textContent = getCopy(project.category);
   document.querySelector("#dialog-title").textContent = project.title;
   document.querySelector("#dialog-description").textContent = getCopy(project.summary);
+  document.querySelector("#dialog-visual").innerHTML = visualMarkup(project.visual);
   document.querySelector("#dialog-challenge").textContent = getCopy(project.challenge);
   document.querySelector("#dialog-role").textContent = getCopy(project.role);
   document.querySelector("#dialog-solution").textContent = getCopy(project.solution);
@@ -669,11 +707,18 @@ function openProject(index) {
   document.querySelector("#dialog-tags").innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
   if (!projectDialog.open) projectDialog.showModal();
   document.body.classList.add("dialog-open");
+  history.replaceState(null, "", `#${projectSlug(project)}`);
   playTone(440, .04);
 }
 
 function closeProject() {
   if (projectDialog.open) projectDialog.close();
+}
+
+function openProjectFromHash() {
+  if (!location.hash.startsWith("#case-")) return;
+  const index = PROJECTS.findIndex((project) => `#${projectSlug(project)}` === location.hash);
+  if (index >= 0) openProject(index);
 }
 
 function applyTranslations() {
@@ -696,6 +741,7 @@ function applyTranslations() {
   document.querySelector("#project-filters").setAttribute("aria-label", UI[currentLanguage].filterLabel);
   document.querySelector("#repo-filters").setAttribute("aria-label", UI[currentLanguage].repoFilterLabel);
   document.title = currentLanguage === "pt" ? "Weslley Neri | Sistemas, IA & Liderança Técnica" : "Weslley Neri | Systems, AI & Technical Leadership";
+  renderCommandLanding();
   renderProjects();
   renderRepositories();
   updateSoundUI();
@@ -733,11 +779,17 @@ function setupBoot() {
   const actions = document.querySelector("#boot-actions");
   const soundCopy = document.querySelector("#boot-sound-copy");
   const gatedContent = [header, document.querySelector("#conteudo"), document.querySelector(".ai-launcher"), document.querySelector("#ai-panel")];
+  const hasSeenIntro = localStorage.getItem("wn-intro-seen") === "true";
+  if (hasSeenIntro) {
+    boot.hidden = true;
+    gatedContent.forEach((element) => { if (element) element.inert = false; });
+    return;
+  }
   document.body.classList.add("booting");
   gatedContent.forEach((element) => { if (element) element.inert = true; });
-  let value = sessionStorage.getItem("wn-intro-seen") ? 88 : 0;
+  let value = 0;
   let entering = false;
-  const step = sessionStorage.getItem("wn-intro-seen") ? 8 : 3;
+  const step = 4;
   const delay = reduceMotion ? 5 : 42;
   const revealChoice = () => {
     value = 100;
@@ -755,7 +807,7 @@ function setupBoot() {
     const started = withSound ? await startAmbient() : false;
     if (!withSound) stopAmbient();
     status.textContent = withSound ? (started ? "SOM ATIVO // ENTRANDO" : "ÁUDIO BLOQUEADO // USE O CONTROLE NO TOPO") : "MODO SILENCIOSO // ENTRANDO";
-    sessionStorage.setItem("wn-intro-seen", "true");
+    localStorage.setItem("wn-intro-seen", "true");
     window.setTimeout(() => {
       boot.classList.add("is-complete");
       document.body.classList.remove("booting");
@@ -799,7 +851,7 @@ function setupCanvas() {
     canvas.width = width * ratio;
     canvas.height = height * ratio;
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const total = coarsePointer || width < 700 ? 16 : 46;
+    const total = coarsePointer || width < 700 ? 12 : 32;
     points = Array.from({ length: total }, () => ({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - .5) * .16, vy: (Math.random() - .5) * .16 }));
   };
   const draw = () => {
@@ -1141,6 +1193,8 @@ function setupRepositoryExplorer() {
 function setupNavigation() {
   const nav = document.querySelector("#main-nav");
   const toggle = document.querySelector("#menu-toggle");
+  const mobileLinks = [...document.querySelectorAll("[data-mobile-nav]")];
+  const trackedSections = ["inicio", "projetos", "github-lab", "contato"].map((id) => document.getElementById(id)).filter(Boolean);
   toggle.addEventListener("click", () => {
     const open = !nav.classList.contains("is-open");
     nav.classList.toggle("is-open", open); toggle.classList.toggle("is-open", open); toggle.setAttribute("aria-expanded", String(open));
@@ -1153,6 +1207,9 @@ function setupNavigation() {
       const max = root.scrollHeight - window.innerHeight;
       root.style.setProperty("--scroll", `${max > 0 ? (window.scrollY / max) * 100 : 0}%`);
       header.classList.toggle("is-scrolled", window.scrollY > 20);
+      let activeId = "inicio";
+      trackedSections.forEach((section) => { if (section.getBoundingClientRect().top <= window.innerHeight * .42) activeId = section.id; });
+      mobileLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.mobileNav === activeId));
       frame = 0;
     });
   };
@@ -1172,12 +1229,27 @@ function setupPointer() {
 
 function setupDialogs() {
   document.querySelector("#dialog-close").addEventListener("click", closeProject);
-  projectDialog.addEventListener("close", () => { document.body.classList.remove("dialog-open"); activeProjectIndex = null; });
+  document.querySelector("#dialog-copy-link").addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      button.innerHTML = "<span>✓</span> LINK COPIADO";
+      window.setTimeout(() => { button.innerHTML = "<span>⌁</span> COPIAR LINK DO CASE"; }, 1800);
+    } catch (error) {
+      button.innerHTML = "<span>!</span> COPIE A URL DO NAVEGADOR";
+    }
+  });
+  projectDialog.addEventListener("close", () => {
+    document.body.classList.remove("dialog-open");
+    activeProjectIndex = null;
+    if (location.hash.startsWith("#case-")) history.replaceState(null, "", "#projetos");
+  });
   projectDialog.addEventListener("click", (event) => { if (event.target === projectDialog) closeProject(); });
 }
 
 function init() {
   setupBoot();
+  renderCommandLanding();
   renderProjects();
   renderRepositories();
   setupFilters();
@@ -1192,6 +1264,8 @@ function init() {
   setupCommands();
   attachTilt(document.querySelectorAll(".identity-card, .impact-main"));
   document.querySelector("#lang-toggle").addEventListener("click", () => { currentLanguage = currentLanguage === "pt" ? "en" : "pt"; applyTranslations(); });
+  openProjectFromHash();
+  window.addEventListener("hashchange", openProjectFromHash);
 }
 
 init();
