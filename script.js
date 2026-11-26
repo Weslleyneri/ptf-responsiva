@@ -527,14 +527,6 @@ let activeProjectIndex = null;
 let currentRepoFilter = "all";
 let repoQuery = "";
 let activeRepoIndex = 0;
-let soundEnabled = false;
-let audioContext = null;
-let ambientMaster = null;
-let ambientNodes = [];
-let ambientSequenceTimer = null;
-let ambientStep = 0;
-let soundToastTimer = null;
-
 const root = document.documentElement;
 const header = document.querySelector("#site-header");
 const projectGrid = document.querySelector("#projects-grid");
@@ -570,27 +562,6 @@ function visualMarkup(type) {
 
 function projectSlug(project) {
   return `case-${project.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
-}
-
-function renderCommandLanding() {
-  const featured = document.querySelector("#featured-projects");
-  const quickGrid = document.querySelector("#github-quick-grid");
-  if (featured) {
-    featured.innerHTML = PROJECTS.slice(0, 3).map((project, index) => `
-      <button class="featured-card" type="button" data-featured-index="${index}" style="--project-color:${project.color}" aria-label="${UI[currentLanguage].projectLabel} ${project.title}">
-        <div class="featured-head"><p><strong>${project.title}</strong><small>${getCopy(project.category)}</small></p><span>↗</span></div>
-        <div class="project-visual">${visualMarkup(project.visual)}</div>
-        <div class="featured-copy"><p>${getCopy(project.summary)}</p></div>
-        <div class="featured-proof">${getCopy(PROJECT_EVIDENCE[index]).map((item) => `<span>${item}</span>`).join("")}</div>
-      </button>`).join("");
-    featured.querySelectorAll("[data-featured-index]").forEach((card) => card.addEventListener("click", () => openProject(Number(card.dataset.featuredIndex))));
-  }
-  if (quickGrid) {
-    quickGrid.innerHTML = GITHUB_REPOS.slice(0, 4).map((repo) => `
-      <a class="github-quick-card" href="${repo.url}" target="_blank" rel="noreferrer" style="--repo-color:${repo.color}" aria-label="${UI[currentLanguage].repoOpen}: ${getCopy(repo.title)}">
-        <strong>${repo.name}</strong><span>↗</span><small>● ${repo.language}</small>
-      </a>`).join("");
-  }
 }
 
 function renderProjects() {
@@ -683,7 +654,7 @@ function selectRepository(index, moveToDetail = false) {
   if (!GITHUB_REPOS[index]) return;
   activeRepoIndex = index;
   renderRepositories();
-  playTone(470 + index * 18, .055);
+
   if (moveToDetail && window.innerWidth <= 820) {
     window.setTimeout(() => repoTerminal.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }), 40);
   }
@@ -705,10 +676,11 @@ function openProject(index) {
   document.querySelector("#dialog-outcome").textContent = getCopy(project.outcome);
   document.querySelector("#dialog-architecture").innerHTML = getCopy(project.architecture).map((item, itemIndex) => `${itemIndex ? "<i>→</i>" : ""}<b>${item}</b>`).join("");
   document.querySelector("#dialog-tags").innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
+  document.querySelector("#case-route").hidden = project.visual !== "route";
   if (!projectDialog.open) projectDialog.showModal();
   document.body.classList.add("dialog-open");
   history.replaceState(null, "", `#${projectSlug(project)}`);
-  playTone(440, .04);
+
 }
 
 function closeProject() {
@@ -741,7 +713,6 @@ function applyTranslations() {
   document.querySelector("#project-filters").setAttribute("aria-label", UI[currentLanguage].filterLabel);
   document.querySelector("#repo-filters").setAttribute("aria-label", UI[currentLanguage].repoFilterLabel);
   document.title = currentLanguage === "pt" ? "Weslley Neri | Sistemas, IA & Liderança Técnica" : "Weslley Neri | Systems, AI & Technical Leadership";
-  renderCommandLanding();
   renderProjects();
   renderRepositories();
   updateSoundUI();
@@ -772,280 +743,38 @@ function attachTilt(elements) {
   });
 }
 
-function setupBoot() {
-  const boot = document.querySelector("#boot-screen");
-  const progress = document.querySelector("#boot-progress");
-  const status = document.querySelector("#boot-status");
-  const actions = document.querySelector("#boot-actions");
-  const soundCopy = document.querySelector("#boot-sound-copy");
-  const gatedContent = [header, document.querySelector("#conteudo"), document.querySelector(".ai-launcher"), document.querySelector("#ai-panel")];
-  const hasSeenIntro = localStorage.getItem("wn-intro-seen") === "true";
-  if (hasSeenIntro) {
-    boot.hidden = true;
-    gatedContent.forEach((element) => { if (element) element.inert = false; });
-    return;
-  }
-  document.body.classList.add("booting");
-  gatedContent.forEach((element) => { if (element) element.inert = true; });
-  let value = 0;
-  let entering = false;
-  const step = 4;
-  const delay = reduceMotion ? 5 : 42;
-  const revealChoice = () => {
-    value = 100;
-    progress.style.width = "100%";
-    status.textContent = "SYSTEM READY // ESCOLHA A EXPERIÊNCIA";
-    actions.hidden = false;
-    soundCopy.hidden = false;
-    window.setTimeout(() => document.querySelector("#enter-with-sound").focus(), reduceMotion ? 10 : 180);
-  };
-  const enter = async (withSound) => {
-    if (entering) return;
-    entering = true;
-    actions.querySelectorAll("button").forEach((button) => { button.disabled = true; });
-    status.textContent = withSound ? "ATIVANDO AMBIENTAÇÃO SYNTH" : "INICIANDO EM MODO SILENCIOSO";
-    const started = withSound ? await startAmbient() : false;
-    if (!withSound) stopAmbient();
-    status.textContent = withSound ? (started ? "SOM ATIVO // ENTRANDO" : "ÁUDIO BLOQUEADO // USE O CONTROLE NO TOPO") : "MODO SILENCIOSO // ENTRANDO";
-    localStorage.setItem("wn-intro-seen", "true");
-    window.setTimeout(() => {
-      boot.classList.add("is-complete");
-      document.body.classList.remove("booting");
-      gatedContent.forEach((element) => { if (element) element.inert = false; });
-      document.querySelector("#conteudo").focus({ preventScroll: true });
-    }, reduceMotion ? 10 : withSound ? 520 : 260);
-  };
-  const timer = window.setInterval(() => {
-    value = Math.min(100, value + step + Math.random() * 5);
-    progress.style.width = `${value}%`;
-    if (value > 33) status.textContent = "CARREGANDO PROJETOS";
-    if (value > 67) status.textContent = "CONECTANDO INTERAÇÕES";
-    if (value >= 100) { window.clearInterval(timer); revealChoice(); }
-  }, delay);
-  document.querySelector("#enter-with-sound").addEventListener("click", () => enter(true));
-  document.querySelector("#enter-without-sound").addEventListener("click", () => enter(false));
-  boot.addEventListener("keydown", (event) => {
-    if (actions.hidden) return;
-    const buttons = [...actions.querySelectorAll("button:not(:disabled)")];
-    if (event.key === "Escape") { event.preventDefault(); enter(false); return; }
-    if (event.key !== "Tab" || buttons.length < 2) return;
-    const first = buttons[0];
-    const last = buttons[buttons.length - 1];
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-  });
-}
-
-function setupCanvas() {
-  if (reduceMotion || navigator.connection?.saveData) return;
-  const canvas = document.querySelector("#neural-canvas");
-  const context = canvas.getContext("2d");
-  let points = [];
-  let width = 0;
-  let height = 0;
-  let animationFrame = 0;
-  const resize = () => {
-    const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const total = coarsePointer || width < 700 ? 12 : 32;
-    points = Array.from({ length: total }, () => ({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - .5) * .16, vy: (Math.random() - .5) * .16 }));
-  };
-  const draw = () => {
-    context.clearRect(0, 0, width, height);
-    points.forEach((point, index) => {
-      point.x += point.vx;
-      point.y += point.vy;
-      if (point.x < 0 || point.x > width) point.vx *= -1;
-      if (point.y < 0 || point.y > height) point.vy *= -1;
-      context.fillStyle = "rgba(103,237,246,.32)";
-      context.fillRect(point.x, point.y, 1, 1);
-      for (let next = index + 1; next < points.length; next += 1) {
-        const target = points[next];
-        const distance = Math.hypot(point.x - target.x, point.y - target.y);
-        if (distance < 135) {
-          context.strokeStyle = `rgba(103,237,246,${(1 - distance / 135) * .075})`;
-          context.beginPath(); context.moveTo(point.x, point.y); context.lineTo(target.x, target.y); context.stroke();
-        }
-      }
-    });
-    animationFrame = requestAnimationFrame(draw);
-  };
-  resize(); draw();
-  window.addEventListener("resize", resize, { passive: true });
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) cancelAnimationFrame(animationFrame); else draw();
-  });
-}
-
-function createAmbientEngine() {
-  if (ambientMaster) return true;
-  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContextClass) return false;
-  audioContext ||= new AudioContextClass();
-
-  ambientMaster = audioContext.createGain();
-  ambientMaster.gain.value = 0.0001;
-  ambientMaster.connect(audioContext.destination);
-
-  const filter = audioContext.createBiquadFilter();
-  filter.type = "lowpass";
-  filter.frequency.value = 760;
-  filter.Q.value = 0.7;
-  filter.connect(ambientMaster);
-
-  const chord = [110, 130.81, 164.81];
-  chord.forEach((frequency, index) => {
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = index === 1 ? "triangle" : "sine";
-    oscillator.frequency.value = frequency;
-    oscillator.detune.value = index === 0 ? -5 : index === 2 ? 5 : 0;
-    gain.gain.value = index === 1 ? 0.11 : 0.16;
-    oscillator.connect(gain); gain.connect(filter); oscillator.start();
-    ambientNodes.push(oscillator, gain);
-  });
-
-  const filterLfo = audioContext.createOscillator();
-  const filterLfoGain = audioContext.createGain();
-  filterLfo.type = "sine";
-  filterLfo.frequency.value = 0.055;
-  filterLfoGain.gain.value = 210;
-  filterLfo.connect(filterLfoGain); filterLfoGain.connect(filter.frequency); filterLfo.start();
-
-  const noiseBuffer = audioContext.createBuffer(1, audioContext.sampleRate * 2, audioContext.sampleRate);
-  const noiseData = noiseBuffer.getChannelData(0);
-  for (let index = 0; index < noiseData.length; index += 1) noiseData[index] = Math.random() * 2 - 1;
-  const noise = audioContext.createBufferSource();
-  const noiseFilter = audioContext.createBiquadFilter();
-  const noiseGain = audioContext.createGain();
-  noise.buffer = noiseBuffer; noise.loop = true;
-  noiseFilter.type = "bandpass"; noiseFilter.frequency.value = 1250; noiseFilter.Q.value = 0.45;
-  noiseGain.gain.value = 0.012;
-  noise.connect(noiseFilter); noiseFilter.connect(noiseGain); noiseGain.connect(ambientMaster); noise.start();
-  ambientNodes.push(filter, filterLfo, filterLfoGain, noise, noiseFilter, noiseGain);
-  return true;
-}
-
-function playAmbientNote() {
-  if (!soundEnabled || !audioContext || audioContext.state !== "running") return;
-  const notes = [220, 261.63, 329.63, 293.66, 246.94];
-  const oscillator = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-  oscillator.type = "sine";
-  oscillator.frequency.value = notes[ambientStep % notes.length];
-  ambientStep += 1;
-  gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.045, audioContext.currentTime + 0.5);
-  gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 3.4);
-  oscillator.connect(gain); gain.connect(ambientMaster);
-  oscillator.start(); oscillator.stop(audioContext.currentTime + 3.5);
-}
-
 function updateSoundUI() {
-  const button = document.querySelector("#sound-toggle");
-  if (!button) return;
-  button.setAttribute("aria-pressed", String(soundEnabled));
-  button.querySelector(".sound-icon").textContent = soundEnabled ? "◉" : "◌";
-  button.querySelector("small").textContent = soundEnabled ? "ON" : "SOM";
-  button.setAttribute("aria-label", soundEnabled ? UI[currentLanguage].soundOn : UI[currentLanguage].soundOff);
-  root.classList.toggle("sound-on", soundEnabled);
+  const on = !ambientAudio.paused && !ambientAudio.ended;
+  const en = currentLanguage === 'en';
+  const label = on ? (en ? 'Pause Corta-Jaca' : 'Pausar Corta-Jaca') : (en ? 'Play Corta-Jaca' : 'Tocar Corta-Jaca');
+  const top = document.querySelector('#sound-toggle');
+  top.setAttribute('aria-pressed', String(on));
+  top.setAttribute('aria-label', label);
+  top.querySelector('small').textContent = on ? (en ? 'Pause' : 'Pausar') : (en ? 'Play' : 'Ouvir');
+  const bottom = document.querySelector('#music-action');
+  bottom.textContent = on ? (en ? 'Pause music' : 'Pausar a trilha') : (en ? 'Play music' : 'Ouvir a trilha');
+  bottom.setAttribute('aria-pressed', String(on));
+  root.classList.toggle('sound-on', on);
 }
-
-function announceSound(message) {
-  if (!soundToast) return;
-  window.clearTimeout(soundToastTimer);
-  soundToast.textContent = message;
-  soundToast.classList.add("is-visible");
-  soundToastTimer = window.setTimeout(() => soundToast.classList.remove("is-visible"), 3400);
-}
-
-async function startAmbient() {
-  let mediaPromise = Promise.reject(new Error("Audio element unavailable"));
-  if (ambientAudio) {
-    ambientAudio.volume = 0.48;
-    ambientAudio.muted = false;
-    try { mediaPromise = Promise.resolve(ambientAudio.play()); } catch (error) { mediaPromise = Promise.reject(error); }
-  }
-
-  let contextPromise = Promise.reject(new Error("Web Audio unavailable"));
-  try {
-    if (createAmbientEngine()) contextPromise = audioContext.resume();
-  } catch (error) {
-    contextPromise = Promise.reject(error);
-  }
-
-  const [mediaResult, contextResult] = await Promise.allSettled([mediaPromise, contextPromise]);
-  const mediaStarted = mediaResult.status === "fulfilled" && ambientAudio && !ambientAudio.paused;
-  const contextStarted = contextResult.status === "fulfilled" && audioContext?.state === "running";
-  soundEnabled = Boolean(mediaStarted || contextStarted);
-
-  if (contextStarted) {
-    const now = audioContext.currentTime;
-    ambientMaster.gain.cancelScheduledValues(now);
-    ambientMaster.gain.setValueAtTime(Math.max(ambientMaster.gain.value, 0.0001), now);
-    ambientMaster.gain.exponentialRampToValueAtTime(mediaStarted ? 0.0001 : 0.11, now + (mediaStarted ? 0.3 : 1.2));
-    if (!mediaStarted && !ambientSequenceTimer) {
-      playAmbientNote();
-      ambientSequenceTimer = window.setInterval(playAmbientNote, 4600);
-    }
-  }
-
-  updateSoundUI();
-  announceSound(soundEnabled ? UI[currentLanguage].soundActive : UI[currentLanguage].soundBlocked);
-  return soundEnabled;
-}
-
-function stopAmbient(showStatus = false) {
-  soundEnabled = false;
-  if (ambientAudio) ambientAudio.pause();
-  if (ambientSequenceTimer) {
-    window.clearInterval(ambientSequenceTimer);
-    ambientSequenceTimer = null;
-  }
-  if (audioContext && ambientMaster) {
-    const now = audioContext.currentTime;
-    ambientMaster.gain.cancelScheduledValues(now);
-    ambientMaster.gain.setValueAtTime(Math.max(ambientMaster.gain.value, 0.0001), now);
-    ambientMaster.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
-  }
-  updateSoundUI();
-  if (showStatus) announceSound(UI[currentLanguage].soundInactive);
-}
-
-function playTone(frequency = 360, duration = 0.035) {
-  if (!soundEnabled || !audioContext || audioContext.state !== "running") return;
-  const oscillator = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-  oscillator.type = "sine";
-  oscillator.frequency.value = frequency;
-  gain.gain.setValueAtTime(0.012, audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
-  oscillator.connect(gain); gain.connect(audioContext.destination);
-  oscillator.start(); oscillator.stop(audioContext.currentTime + duration);
-}
-
 function setupSound() {
-  const button = document.querySelector("#sound-toggle");
-  updateSoundUI();
-  button.addEventListener("click", async () => {
-    if (soundEnabled) stopAmbient(true);
-    else {
-      await startAmbient();
-      playTone(520, 0.08);
+  const volume = document.querySelector('#music-volume');
+  ambientAudio.volume = Number(volume.value);
+  volume.addEventListener('input', () => { ambientAudio.volume = Number(volume.value); });
+  let timeout = 0;
+  const toggle = async () => {
+    if (!ambientAudio.paused) { ambientAudio.pause(); return; }
+    try { await ambientAudio.play(); }
+    catch (error) {
+      if (error.name === 'AbortError') return;
+      soundToast.textContent = currentLanguage === 'en' ? 'Playback failed. Try again or download the MP3 in the credits.' : 'Falha ao tocar. Tente novamente ou baixe o MP3 nos créditos.';
+      soundToast.classList.add('is-visible');
+      clearTimeout(timeout);
+      timeout = setTimeout(() => soundToast.classList.remove('is-visible'), 4000);
     }
-  });
-  document.addEventListener("click", (event) => {
-    if (soundEnabled && event.target.closest("a, button") && !event.target.closest("#sound-toggle, #boot-screen")) playTone(330, 0.025);
-  });
-  document.addEventListener("visibilitychange", () => {
-    if (!audioContext || !soundEnabled) return;
-    if (document.hidden) audioContext.suspend().catch(() => {});
-    else audioContext.resume().catch(() => {});
-  });
+  };
+  for (const id of ['sound-toggle','music-action']) document.getElementById(id).addEventListener('click', toggle);
+  for (const name of ['play','playing','pause','ended','error']) ambientAudio.addEventListener(name, updateSoundUI);
+  updateSoundUI();
 }
 
 function addAiMessage(text, sender) {
@@ -1078,7 +807,7 @@ function askAssistant(question) {
   typing.innerHTML = "<i></i><i></i><i></i>";
   document.querySelector("#ai-messages").appendChild(typing);
   typing.scrollIntoView({ block: "end", behavior: "smooth" });
-  window.setTimeout(() => { typing.remove(); addAiMessage(getAiAnswer(clean), "bot"); playTone(610, .06); }, reduceMotion ? 20 : 480);
+  window.setTimeout(() => { typing.remove(); addAiMessage(getAiAnswer(clean), "bot"); }, reduceMotion ? 20 : 480);
 }
 
 function renderSuggestions() {
@@ -1105,8 +834,8 @@ function setupAssistant() {
 
 function commandItems() {
   const sectionNames = currentLanguage === "pt"
-    ? [["inicio", "Início"], ["projetos", "Projetos"], ["github-lab", "GitHub Lab"], ["impacto", "Mapa de impacto"], ["sobre", "Sobre mim"], ["jornada", "Jornada profissional"], ["curriculo", "Currículo"], ["contato", "Contato"]]
-    : [["inicio", "Home"], ["projetos", "Projects"], ["github-lab", "GitHub Lab"], ["impacto", "Impact map"], ["sobre", "About me"], ["jornada", "Professional journey"], ["curriculo", "Résumé"], ["contato", "Contact"]];
+    ? [["inicio", "Início"], ["trajetoria", "Trajetória e experiência"], ["rotas", "Monte uma rota · Cervelo"], ["laboratorio", "Laboratório interativo"], ["competencias", "Competências"], ["projetos", "Projetos"], ["github-lab", "GitHub Lab"], ["impacto", "Mapa de impacto"], ["sobre", "Sobre mim"], ["jornada", "Jornada profissional"], ["curriculo", "Currículo"], ["contato", "Contato"]]
+    : [["inicio", "Home"], ["trajetoria", "Career and experience"], ["rotas", "Route planner · Cervelo"], ["laboratorio", "Interactive playground"], ["competencias", "Expertise"], ["projetos", "Projects"], ["github-lab", "GitHub Lab"], ["impacto", "Impact map"], ["sobre", "About me"], ["jornada", "Professional journey"], ["curriculo", "Résumé"], ["contato", "Contact"]];
   return [
     ...sectionNames.map(([id, label]) => ({ type: "section", id, label })),
     ...PROJECTS.map((project, index) => ({ type: "project", id: index, label: project.title })),
@@ -1194,7 +923,7 @@ function setupNavigation() {
   const nav = document.querySelector("#main-nav");
   const toggle = document.querySelector("#menu-toggle");
   const mobileLinks = [...document.querySelectorAll("[data-mobile-nav]")];
-  const trackedSections = ["inicio", "projetos", "github-lab", "contato"].map((id) => document.getElementById(id)).filter(Boolean);
+  const trackedSections = mobileLinks.map(link => document.getElementById(link.dataset.mobileNav)).filter(Boolean);
   toggle.addEventListener("click", () => {
     const open = !nav.classList.contains("is-open");
     nav.classList.toggle("is-open", open); toggle.classList.toggle("is-open", open); toggle.setAttribute("aria-expanded", String(open));
@@ -1228,6 +957,10 @@ function setupPointer() {
 }
 
 function setupDialogs() {
+  document.querySelector("#case-route").addEventListener("click", event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    closeProject();
+  });
   document.querySelector("#dialog-close").addEventListener("click", closeProject);
   document.querySelector("#dialog-copy-link").addEventListener("click", async (event) => {
     const button = event.currentTarget;
@@ -1248,8 +981,6 @@ function setupDialogs() {
 }
 
 function init() {
-  setupBoot();
-  renderCommandLanding();
   renderProjects();
   renderRepositories();
   setupFilters();
@@ -1258,7 +989,6 @@ function init() {
   setupNavigation();
   setupReveals();
   setupPointer();
-  setupCanvas();
   setupSound();
   setupAssistant();
   setupCommands();
